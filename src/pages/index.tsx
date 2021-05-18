@@ -1,23 +1,21 @@
-import * as React from "react";
-import GlobalSearch from "../components/GlobalSearch";
-import SiteLogo from "../components/SiteLogo";
-import ThemeToggle from "../components/ThemeToggle";
+import * as React from "react"
+import GlobalSearch from "../components/GlobalSearch"
+import SiteLogo from "../components/SiteLogo"
+import ThemeToggle from "../components/ThemeToggle"
+import Layout from "../layouts/Layout"
+import { useUsePerfersMode } from "../utils"
 // markup
 const IndexPage = () => {
+  useUsePerfersMode()
   return (
-    <section className="bg-yellow-50 w-screen h-screen">
-      <header className="container mx-auto my-4 px-4 flex items-center justify-between">
-        <SiteLogo />
-        <div>
-          <GlobalSearch />
-          <ThemeToggle />
-        </div>
-      </header>
-      <main className="containermx-auto px-4">
-        <p>My Blog is not a Blog, is a digital garden.</p>
+    <Layout>
+      <main className="container mx-auto px-4">
+        <p className="text-lg font-serif mt-10">
+          My Blog is not a Blog, is a digital garden.
+        </p>
       </main>
-    </section>
-  );
-};
+    </Layout>
+  )
+}
 
-export default IndexPage;
+export default IndexPage
