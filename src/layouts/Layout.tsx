@@ -19,13 +19,15 @@ const defaultHeader = (
   </header>
 )
 
-const defaultFooter = <div></div>
+const defaultFooter = (
+  <div className="flex justify-center">Powered By Gatsby</div>
+)
 
 const Layout = (props: ILayoutProps) => {
   const { header = defaultHeader, footer = defaultFooter, children } = props
 
   return (
-    <section className="bg-yellow-50 dark:bg-gray-800 w-screen h-screen pt-8 dark:text-gray-50 text-black">
+    <section className="bg-yellow-50 dark:bg-gray-800 min-h-screen w-screen pt-8 dark:text-gray-50 text-black">
       {header}
       {children}
       {footer}

@@ -6,7 +6,7 @@ const siteName = `rio shi's digital garden`
 
 const SiteLogo = (): JSX.Element => {
   return (
-    <div className="flex items-center cursor-pointer">
+    <a href="/" className="flex items-center cursor-pointer">
       <img src={logo} className="w-20 float-left" alt={siteName} />
       <h1
         className={`ml-6 font-serif 2xl:text-3xl xl:text-2xl md:text-xl
@@ -16,7 +16,7 @@ const SiteLogo = (): JSX.Element => {
       >
         {siteName}
       </h1>
-    </div>
+    </a>
   )
 }
 

@@ -1,5 +1,5 @@
 import React, { useCallback, useState } from "react"
-import { isDarkMode, toggleDarkMode } from "../utils"
+import { isDarkMode, toggleDarkMode } from "../utils/darkMode"
 
 interface IThemeToggleProps {}
 
