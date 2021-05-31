@@ -1,8 +1,8 @@
 import React from "react"
 
-interface IEssentialArticlesProps {}
+interface IEssentialPostsProps {}
 
-const EssentialArticles = (props: IEssentialArticlesProps) => {
+const EssentialPosts = (props: IEssentialPostsProps) => {
   return (
     <section className="my-4">
       <ul>
@@ -19,4 +19,4 @@ const EssentialArticles = (props: IEssentialArticlesProps) => {
   )
 }
 
-export default EssentialArticles
+export default EssentialPosts

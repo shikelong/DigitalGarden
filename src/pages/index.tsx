@@ -1,6 +1,7 @@
+import { graphql } from "gatsby"
 import * as React from "react"
-import BrowseAllArticles from "../components/BrowseAllArticles"
-import EssentialArticles from "../components/EssentialArticles"
+import BrowseAllPosts from "../components/BrowseAllPosts"
+import EssentialPosts from "../components/EssentialPosts"
 import Layout from "../layouts/Layout"
 // markup
 const IndexPage = () => {
@@ -16,8 +17,8 @@ const IndexPage = () => {
           a digital garden. My Blog is not a Blog, is a digital garden. My Blog
           is not a Blog, is a digital garden.
         </p>
-        <EssentialArticles />
-        <BrowseAllArticles />
+        <EssentialPosts />
+        <BrowseAllPosts />
       </main>
     </Layout>
   )
