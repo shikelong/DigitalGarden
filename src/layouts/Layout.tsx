@@ -2,9 +2,10 @@ import React from "react"
 import GlobalSearch from "../components/GlobalSearch"
 import SiteLogo from "../components/SiteLogo"
 import ThemeToggle from "../components/ThemeToggle"
+import { HeartIcon } from "@heroicons/react/solid"
 
 interface ILayoutProps {
-  children: React.ReactNode
+  children: React.ReactElement
   header?: React.ReactNode
   footer?: React.ReactNode
 }
@@ -20,16 +21,26 @@ const defaultHeader = (
 )
 
 const defaultFooter = (
-  <div className="flex justify-center">Powered By Gatsby</div>
+  <div className="flex justify-center m-6">
+    {" "}
+    <HeartIcon className="text-red-400 w-5 mr-2" /> Powered By Gatsby
+  </div>
 )
 
 const Layout = (props: ILayoutProps) => {
   const { header = defaultHeader, footer = defaultFooter, children } = props
 
+  if (!React.Children.only(children)) {
+    throw new Error("should has only one children!")
+  }
+
   return (
-    <section className="bg-yellow-50 dark:bg-gray-800 min-h-screen w-screen pt-8 dark:text-gray-50 text-black">
+    <section className="bg-yellow-50 dark:bg-gray-800 min-h-screen w-screen pt-8 dark:text-gray-50 text-black flex flex-col">
       {header}
-      {children}
+      <children.type
+        {...children.props}
+        className={`${children.props?.className || ""} flex-grow`}
+      />
       {footer}
     </section>
   )

@@ -1,4 +1,5 @@
 import { useEffect } from "react"
+import { SunIcon, MoonIcon } from "@heroicons/react/solid"
 
 export function toggleDarkMode() {
   const html = document.getElementsByTagName("html")[0]
