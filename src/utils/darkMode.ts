@@ -1,5 +1,6 @@
 import { useEffect } from "react"
-import { SunIcon, MoonIcon } from "@heroicons/react/solid"
+
+const isBrowser = typeof window !== "undefined"
 
 export function toggleDarkMode() {
   const html = document.getElementsByTagName("html")[0]
@@ -8,8 +9,12 @@ export function toggleDarkMode() {
 }
 
 export function isDarkMode(): boolean {
-  const html = document.getElementsByTagName("html")[0]
-  return html.classList.contains("scheme-dark")
+  if (isBrowser) {
+    const html = document.getElementsByTagName("html")[0]
+    return html.classList.contains("scheme-dark")
+  }
+
+  return false
 }
 
 export function useUsePerfersMode(): void {
