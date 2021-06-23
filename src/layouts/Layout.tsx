@@ -35,7 +35,7 @@ const Layout = (props: ILayoutProps) => {
   }
 
   return (
-    <section className="bg-yellow-50 dark:bg-gray-800 min-h-screen w-screen pt-8 dark:text-gray-50 text-black flex flex-col">
+    <section className="bg-yellow-50 dark:bg-gray-800 min-h-screen w-screen p-8 dark:text-gray-50 text-black flex flex-col">
       {header}
       <children.type
         {...children.props}
