@@ -1,8 +1,8 @@
 import React from "react"
-import { useUsePerfersMode } from "../utils/darkMode"
+import { useUsePrefersMode } from "../utils/darkMode"
 
 const GlobalWrapper = ({ element }: { element: React.ReactNode }) => {
-  useUsePerfersMode()
+  useUsePrefersMode()
   return element
 }
 

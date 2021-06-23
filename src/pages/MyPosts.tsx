@@ -1,4 +1,5 @@
 import { graphql } from "gatsby"
+import _ from "lodash"
 import * as React from "react"
 import Layout from "../layouts/Layout"
 import { Post } from "../types"
@@ -9,10 +10,12 @@ const MyPosts = ({ data }) => {
       <>
         <div>My Blog Posts</div>
         <ul>
-          {data.allMdx.nodes.map((post, index) => (
+          {data.allMdx.nodes.map((post: Post, index) => (
             <li key={index}>
+              <a href={`/content/${_.trim(post.frontmatter.path, '/')}`}>
               {post.frontmatter.title}
               {post.frontmatter.data}
+              </a>
             </li>
           ))}
         </ul>
@@ -30,6 +33,7 @@ export const query = graphql`
         frontmatter {
           title
           date(formatString: "YYYY MMMM Do")
+          path
         }
         slug
       }

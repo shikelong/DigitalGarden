@@ -4,7 +4,7 @@ const isBrowser = typeof window !== "undefined"
 
 export function toggleDarkMode() {
   const html = document.getElementsByTagName("html")[0]
-  setUserPerferToLocalStorage(!html.classList.contains("scheme-dark"))
+  setUserPreferToLocalStorage(!html.classList.contains("scheme-dark"))
   html.classList.toggle("scheme-dark")
 }
 
@@ -17,9 +17,9 @@ export function isDarkMode(): boolean {
   return false
 }
 
-export function useUsePerfersMode(): void {
+export function useUsePrefersMode(): void {
   useEffect(() => {
-    const isPeferDarkMode = isUserPerferDarkMode()
+    const isPeferDarkMode = isUserPreferDarkMode()
     const isCurrentDarkMode = isDarkMode()
     //TODO: store dark mode select option to ls.
 
@@ -31,7 +31,7 @@ export function useUsePerfersMode(): void {
   }, [])
 }
 
-export function isUserPerferDarkMode(): boolean {
+export function isUserPreferDarkMode(): boolean {
   const isSystemDarkMode =
     window.matchMedia &&
     window.matchMedia("(prefers-color-scheme: dark)").matches
@@ -42,6 +42,6 @@ export function isUserPerferDarkMode(): boolean {
   return darkModeValue === undefined ? isSystemDarkMode : isSiteDarkMode
 }
 
-function setUserPerferToLocalStorage(isDark: boolean): void {
+function setUserPreferToLocalStorage(isDark: boolean): void {
   localStorage.setItem("isDarkMode", isDark ? "1" : "0")
 }
