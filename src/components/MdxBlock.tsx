@@ -25,12 +25,22 @@ const MyList = (props) => <ul className="list-disc m-4" {...props}></ul>
 const MyOrderedList = (props) => (
   <ol className="list-decimal m-4" {...props}></ol>
 )
-const MyTable = (props) => <table className="m-4" {...props}></table>
+const MyTable = (props) => (
+  <table
+    className="mt-4 border-gray-500 border-solid border"
+    {...props}
+  ></table>
+)
+const MyTableRow = (props) => <tr className="border" {...props}></tr>
 const MyInlineCode = (props) => <code className="bg-red-300" {...props}></code>
 const MyBreak = (props) => <hr className="m-4" {...props}></hr>
 const Link = (props) => <a className="underline" {...props}></a>
-// const MyEmphasis = (props) => <em  className=""></>
-// const MyStrong = (props) => <  className=""></>
+const MyEmphasis = (props) => <em className="" {...props}></em>
+const MyStrong = (props) => (
+  <strong className="bg-yellow-500 bg-opacity-50 p-1" {...props}></strong>
+)
+const MyTableCell = (props) => <td className="p-3 border" {...props}></td>
+const MyTableHeaderCell = (props) => <th className="p-3 border" {...props}></th>
 
 const components = {
   pre: CodeBlock,
@@ -45,8 +55,11 @@ const components = {
   ul: MyList,
   ol: MyOrderedList,
   table: MyTable,
-  // em: MyEmphasis,
-  // strong: MyStrong,
+  tr: MyTableRow,
+  td: MyTableCell,
+  th: MyTableHeaderCell,
+  em: MyEmphasis,
+  strong: MyStrong,
   inlineCode: MyInlineCode,
   hr: MyBreak,
   a: Link,
