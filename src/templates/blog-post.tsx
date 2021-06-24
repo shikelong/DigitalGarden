@@ -9,10 +9,9 @@ const BlogPostTemplate = ({ data, location }) => {
   const siteTitle = data.site.siteMetadata?.title || `Title`
   const { previous, next } = data
 
-  console.log("post: ", post)
   return (
     <Layout>
-      <>
+      <div>
         <article
           className="blog-post"
           itemScope
@@ -54,7 +53,7 @@ const BlogPostTemplate = ({ data, location }) => {
             </li>
           </ul>
         </nav>
-      </>
+      </div>
     </Layout>
   )
 }

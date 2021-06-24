@@ -7,7 +7,7 @@ import { Post } from "../types"
 const MyPosts = ({ data }) => {
   return (
     <Layout>
-      <>
+      <div>
         <div>My Blog Posts</div>
         <ul>
           {data.allMdx.nodes.map((post: Post, index) => (
@@ -19,7 +19,7 @@ const MyPosts = ({ data }) => {
             </li>
           ))}
         </ul>
-      </>
+      </div>
     </Layout>
   )
 }
