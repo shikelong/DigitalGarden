@@ -12,9 +12,9 @@ const MyPosts = ({ data }) => {
         <ul>
           {data.allMdx.nodes.map((post: Post, index) => (
             <li key={index}>
-              <a href={`/content/${_.trim(post.frontmatter.path, '/')}`}>
-              {post.frontmatter.title}
-              {post.frontmatter.data}
+              <a href={`/content/${_.trim(post.frontmatter.path, "/")}`}>
+                {post.frontmatter.title}
+                {post.frontmatter.data}
               </a>
             </li>
           ))}

@@ -69,7 +69,9 @@ const MdxBlock = (props: IMdxBlockProps) => {
   console.log("children: ", props.content)
   return (
     <MDXProvider components={components}>
-      <div className="markdownContainer">{props.content}</div>
+      <div className="markdownContainer">
+        <MDXRenderer>{props.content}</MDXRenderer>
+      </div>
     </MDXProvider>
   )
 }

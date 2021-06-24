@@ -3,7 +3,6 @@ module.exports = {
     title: "RioShi's Digital Garden",
   },
   plugins: [
-    "gatsby-plugin-emotion",
     "gatsby-plugin-image",
     {
       resolve: "gatsby-plugin-google-analytics",
@@ -12,7 +11,7 @@ module.exports = {
       },
     },
     "gatsby-plugin-react-helmet",
-    "gatsby-plugin-sitemap",
+    // "gatsby-plugin-sitemap",
     {
       resolve: "gatsby-plugin-manifest",
       options: {
@@ -38,26 +37,9 @@ module.exports = {
       __key: "pages",
     },
     {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        name: `posts`,
-        path: `${__dirname}/src/posts/`,
-      },
-    },
-    {
-      resolve: "gatsby-plugin-page-creator",
-      options: {
-        path: `${__dirname}/src/posts`,
-      },
-    },
-    {
       resolve: `gatsby-plugin-mdx`,
       options: {
         extensions: [`.md`, `.mdx`],
-        defaultLayouts: {
-          posts: require.resolve("./src/layouts/PostsLayout.tsx"),
-          default: require.resolve("./src/layouts/PostsLayout.tsx"),
-        },
       },
     },
   ],
