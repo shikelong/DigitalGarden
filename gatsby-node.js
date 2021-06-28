@@ -34,9 +34,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
   }
   const posts = result.data.allMdx.nodes
 
-  // Create blog posts pages
-  // But only if there's at least one markdown file found at "content/blog" (defined in gatsby-config.js)
-  // `context` is available in the template as a prop and as a variable in GraphQL
+  console.log("posts length: ", posts.length)
 
   if (posts.length > 0) {
     posts.forEach((post, index) => {
@@ -52,6 +50,8 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
           nextPostId,
         },
       })
+
+      console.log("create page: ", post.slug)
     })
   }
 }
