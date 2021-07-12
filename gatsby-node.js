@@ -1,5 +1,23 @@
 const path = require(`path`)
+const _ = require("lodash")
 const { createFilePath } = require(`gatsby-source-filesystem`)
+
+const createdPages = []
+function createPageSafely(createPage, { path, component, context }) {
+  const cleanPath = _.trim(path, "/")
+
+  if (createdPages.includes(cleanPath)) {
+    throw Error(
+      `Attempted to create page "/${cleanPath}", but page "/${cleanPath}" already exists. Exited to prevent potential non-deterministic routing behavior.`
+    )
+  }
+  createPage({
+    path,
+    component,
+    context,
+  })
+  createdPages.push(cleanPath)
+}
 
 exports.createPages = async ({ graphql, actions, reporter }) => {
   const { createPage } = actions
@@ -41,7 +59,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
       const previousPostId = index === 0 ? null : posts[index - 1].id
       const nextPostId = index === posts.length - 1 ? null : posts[index + 1].id
 
-      createPage({
+      createPageSafely(createPage, {
         path: post.slug,
         component: blogPost,
         context: {
@@ -50,8 +68,6 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
           nextPostId,
         },
       })
-
-      console.log("create page: ", post.slug)
     })
   }
 }
@@ -62,6 +78,7 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
   if (node.internal.type === `Mdx`) {
     const value = createFilePath({ node, getNode })
 
+    console.log("onCreateNode: ", value)
     createNodeField({
       name: `slug`,
       node,

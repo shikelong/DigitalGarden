@@ -10,7 +10,6 @@
   "scripts": {
     "develop": "gatsby develop",
     "start": "gatsby develop",
-    "prebuild": "gatsby clean",
     "build": "gatsby build",
     "serve": "gatsby serve",
     "clean": "gatsby clean",
@@ -33,6 +32,7 @@
     "gatsby-remark-classes": "^1.0.0",
     "gatsby-source-filesystem": "^3.5.0",
     "gatsby-transformer-sharp": "^3.5.0",
+    "lodash": "^4.17.21",
     "prism-react-renderer": "^1.2.1",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
