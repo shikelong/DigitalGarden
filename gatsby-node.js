@@ -11,11 +11,15 @@ function createPageSafely(createPage, { path, component, context }) {
       `Attempted to create page "/${cleanPath}", but page "/${cleanPath}" already exists. Exited to prevent potential non-deterministic routing behavior.`
     )
   }
+
   createPage({
     path,
     component,
     context,
   })
+
+  console.log("create page: ", JSON.stringify({ path, context }))
+
   createdPages.push(cleanPath)
 }
 

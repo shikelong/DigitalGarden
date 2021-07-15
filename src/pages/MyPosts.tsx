@@ -12,7 +12,7 @@ const MyPosts = ({ data }) => {
         <ul>
           {data.allMdx.nodes.map((post: Post, index) => (
             <li key={index}>
-              <a href={`/content/${_.trim(post.frontmatter.path, "/")}`}>
+              <a href={`/${_.trim(post.slug, "/")}`}>
                 {post.frontmatter.title}
                 {post.frontmatter.data}
               </a>
@@ -33,7 +33,6 @@ export const query = graphql`
         frontmatter {
           title
           date(formatString: "YYYY MMMM Do")
-          path
         }
         slug
       }
