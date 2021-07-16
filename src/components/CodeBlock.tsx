@@ -1,12 +1,13 @@
 //@ts-ignore
 import Highlight, { defaultProps } from "prism-react-renderer"
-import theme from "prism-react-renderer/themes/github"
+import theme from "prism-react-renderer/themes/vsLight/"
+
 import React from "react"
 
+//TODO：allow user change theme
 export default (props) => {
   const className = props.children.props.className || ""
   const matches = className.match(/language-(?<lang>.*)/)
-  console.log("Code Block: ", props)
   return (
     <Highlight
       {...defaultProps}
@@ -16,7 +17,7 @@ export default (props) => {
           ? matches.groups.lang
           : ""
       }
-      // theme={theme}
+      theme={theme}
     >
       {({ className, style, tokens, getLineProps, getTokenProps }) => (
         <pre className={className} style={{ ...style, padding: "20px" }}>

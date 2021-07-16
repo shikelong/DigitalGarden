@@ -1,6 +1,5 @@
 import React from "react"
 import logo from "../images/logo.png"
-import logoWhite from "../images/logoWhite.png"
 
 const siteName = `rio shi's digital garden`
 
