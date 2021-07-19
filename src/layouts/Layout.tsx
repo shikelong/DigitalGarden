@@ -1,5 +1,5 @@
 import React from "react"
-import GlobalSearch from "../components/GlobalSearch"
+import SiteSearch from "../components/SiteSearch"
 import SiteLogo from "../components/SiteLogo"
 import ThemeToggle from "../components/ThemeToggle"
 import { HeartIcon } from "@heroicons/react/solid"
@@ -13,17 +13,17 @@ interface ILayoutProps {
 const defaultHeader = (
   <header className="container mx-auto px-4 flex items-center justify-between">
     <SiteLogo />
-    <div>
-      <GlobalSearch />
+    <div className="float-right">
+      <SiteSearch />
       <ThemeToggle />
     </div>
   </header>
 )
 
 const defaultFooter = (
-  <div className="flex justify-center m-6">
+  <div className="flex justify-center m-auto text-sm ">
     {" "}
-    <HeartIcon className="text-red-400 w-5 mr-2" /> Powered By Gatsby
+    <HeartIcon className="text-red-400 w-5 mr-2 " /> Powered By Gatsby
   </div>
 )
 
@@ -35,7 +35,7 @@ const Layout = (props: ILayoutProps) => {
   }
 
   return (
-    <section className="dark:bg-gray-800 min-h-screen w-screen p-8 dark:text-gray-50 text-black flex flex-col">
+    <section className="dark:bg-gray-800 min-h-screen w-screen p-4 dark:text-gray-50 text-black flex flex-col">
       {header}
       <children.type
         {...children.props}

@@ -1,5 +1,6 @@
 import React, { useCallback, useState } from "react"
 import { isDarkMode, toggleDarkMode } from "../utils/darkMode"
+import { MoonIcon, SunIcon } from "@heroicons/react/solid"
 
 interface IThemeToggleProps {}
 
@@ -12,12 +13,16 @@ const ThemeToggle = (props: IThemeToggleProps) => {
   }, [])
 
   return (
-    <button
-      className="inline-block cursor-pointer"
+    <div
+      className="cursor-pointer m-2 inline-block"
       onClick={handleToggleDarkMode}
     >
-      {darkMode ? "Light" : "Dark"}
-    </button>
+      {darkMode ? (
+        <SunIcon className="w-10 text-white" />
+      ) : (
+        <MoonIcon className="w-10 text-black" />
+      )}
+    </div>
   )
 }
 
