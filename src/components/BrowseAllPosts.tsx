@@ -9,7 +9,9 @@ const BrowseAllPosts = (props: IBrowseAllPostsProps) => {
     <button
       className={`text-md cursor-pointer border border-current flex
           items-center
+          bg-white
           hover:underline
+          dark:text-black
      p-3 rounded-sm `}
     >
       <a href="/MyPosts">Browse all Articles</a>

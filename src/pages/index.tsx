@@ -7,10 +7,10 @@ import Layout from "../layouts/Layout"
 const IndexPage = () => {
   return (
     <Layout>
-      <main className="container 2xl:container mx-auto px-4">
+      <>
         <PostList />
         <BrowseAllPosts />
-      </main>
+      </>
     </Layout>
   )
 }
