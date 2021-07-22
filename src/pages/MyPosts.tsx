@@ -7,19 +7,18 @@ import { Post } from "../types"
 const MyPosts = ({ data }) => {
   return (
     <Layout>
-      <div>
-        <div>My Blog Posts</div>
-        <ul>
-          {data.allMdx.nodes.map((post: Post, index) => (
-            <li key={index}>
-              <a href={`/${_.trim(post.slug, "/")}`}>
+      <ul className="container max-w-4xl mx-auto border divide-y">
+        {data.allMdx.nodes.map((post: Post, index) => (
+          <li key={index} className="p-4">
+            <a href={`/${_.trim(post.slug, "/")}`}>
+              <h3 className="font-bold text-lg hover:text-blue-400">
                 {post.frontmatter.title}
-                {post.frontmatter.data}
-              </a>
-            </li>
-          ))}
-        </ul>
-      </div>
+              </h3>
+              {post.frontmatter.data}
+            </a>
+          </li>
+        ))}
+      </ul>
     </Layout>
   )
 }

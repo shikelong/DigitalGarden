@@ -10,7 +10,10 @@ module.exports = {
   variants: {
     textColor: ["responsive", "dark", "dark-hover", "hover", "focus"],
     backgroundColor: ["dark", "responsive", "hover", "focus"],
-    extend: {},
+    extend: {
+      fontSize: ["hover", "group-hover"],
+      translate: ["group-hover"],
+    },
   },
   plugins: [
     "gatsby-plugin-postcss",

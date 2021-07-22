@@ -1,6 +1,6 @@
 module.exports = {
   siteMetadata: {
-    title: "Rio 的数字花园",
+    title: "Little brids can remeber",
   },
   plugins: [
     "gatsby-plugin-image",

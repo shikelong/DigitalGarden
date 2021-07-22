@@ -4,7 +4,7 @@ const SiteSearch = () => {
   return (
     <input
       type="text"
-      placeholder="type something to search..."
+      placeholder=""
       className={`border w-56 h-8 rounded-sm border-black  px-2 py-2 text-sm
         dark:text-black`}
     />
