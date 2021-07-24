@@ -1,5 +1,5 @@
 const useLocation = (): Location => {
-  return window.location
+  return globalThis.location
 }
 
 export default useLocation
