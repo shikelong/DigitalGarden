@@ -4,10 +4,13 @@ import SiteLogo from "../components/SiteLogo"
 import ThemeToggle from "../components/ThemeToggle"
 import Nav from "../components/Nav"
 
-export const AppHeader = (
+type AppHeaderProps = {
+  location: Location
+}
+export const AppHeader = ({ location }: AppHeaderProps): JSX.Element => (
   <header className="w-full mx-auto px-4 flex items-center justify-between gap-8">
     <SiteLogo />
-    <Nav />
+    <Nav location={location} />
     <div className="float-right flex items-center">
       <SiteSearch />
       <ThemeToggle />

@@ -9,53 +9,55 @@ const BlogPostTemplate = ({ data, location }) => {
   const siteTitle = data.site.siteMetadata?.title || `Title`
   const { previous, next } = data
 
-  console.log("use blog post template: ", post.body)
-
   return (
     <Layout>
-      <div>
-        <article
-          className="blog-post"
-          itemScope
-          itemType="http://schema.org/Article"
-        >
-          <header>
-            <h1 itemProp="headline">{post.title}</h1>
-            <p>{post.frontmatter.date}</p>
-          </header>
-          <MdxBlock content={post.body}></MdxBlock>
-          <hr />
-          <footer>
-            <p>rio</p>
-          </footer>
-        </article>
-        <nav className="blog-post-nav">
-          <ul
-            style={{
-              display: `flex`,
-              flexWrap: `wrap`,
-              justifyContent: `space-between`,
-              listStyle: `none`,
-              padding: 0,
-            }}
+      <Layout.Header location={location}></Layout.Header>
+      <Layout.Content>
+        <div>
+          <article
+            className="blog-post"
+            itemScope
+            itemType="http://schema.org/Article"
           >
-            <li>
-              {previous && (
-                <Link to={`/${previous.slug}`} rel="prev">
-                  ← {previous.frontmatter.title}
-                </Link>
-              )}
-            </li>
-            <li>
-              {next && (
-                <Link to={`/${next.slug}`} rel="next">
-                  {next.frontmatter.title} →
-                </Link>
-              )}
-            </li>
-          </ul>
-        </nav>
-      </div>
+            <header>
+              <h1 itemProp="headline">{post.title}</h1>
+              <p>{post.frontmatter.date}</p>
+            </header>
+            <MdxBlock content={post.body}></MdxBlock>
+            <hr />
+            <footer>
+              <p>rio</p>
+            </footer>
+          </article>
+          <nav className="blog-post-nav">
+            <ul
+              style={{
+                display: `flex`,
+                flexWrap: `wrap`,
+                justifyContent: `space-between`,
+                listStyle: `none`,
+                padding: 0,
+              }}
+            >
+              <li>
+                {previous && (
+                  <Link to={`/${previous.slug}`} rel="prev">
+                    ← {previous.frontmatter.title}
+                  </Link>
+                )}
+              </li>
+              <li>
+                {next && (
+                  <Link to={`/${next.slug}`} rel="next">
+                    {next.frontmatter.title} →
+                  </Link>
+                )}
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </Layout.Content>
+      <Layout.Footer></Layout.Footer>
     </Layout>
   )
 }

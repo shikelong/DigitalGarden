@@ -4,13 +4,15 @@ import BrowseAllPosts from "../components/BrowseAllPosts"
 import PostList from "../components/PostList"
 import Layout from "../layouts/Layout"
 
-const IndexPage = () => {
+const IndexPage = (props) => {
   return (
     <Layout>
-      <div>
+      <Layout.Header location={props.location}></Layout.Header>
+      <Layout.Content>
         <PostList />
         <BrowseAllPosts />
-      </div>
+      </Layout.Content>
+      <Layout.Footer></Layout.Footer>
     </Layout>
   )
 }

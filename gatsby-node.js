@@ -28,7 +28,6 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
 
   // Define a template for blog post
   const blogPost = path.resolve(`./src/templates/blog-post.tsx`)
-  console.log("run createPage...: ", blogPost)
 
   // Get all markdown blog posts sorted by date
   const result = await graphql(
@@ -55,8 +54,6 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
     return
   }
   const posts = result.data.allMdx.nodes
-
-  console.log("posts length: ", posts.length)
 
   if (posts.length > 0) {
     posts.forEach((post, index) => {
@@ -92,7 +89,6 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
   if (node.internal.type === `Mdx`) {
     const value = createFilePath({ node, getNode })
 
-    console.log("onCreateNode: ", value)
     createNodeField({
       name: `slug`,
       node,

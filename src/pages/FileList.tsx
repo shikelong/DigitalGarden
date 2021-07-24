@@ -4,13 +4,15 @@ import Layout from "../layouts/Layout"
 
 interface IFileListProps {
   data: any
+  location: Location
 }
 
 const FileList = (props: IFileListProps) => {
-  const { data } = props
+  const { data, location } = props
   return (
     <Layout>
-      <div>
+      <Layout.Header location={location}></Layout.Header>
+      <Layout.Content>
         <h1>My Site's Files</h1>
         <table className="border-green-600 border m-4">
           <thead>
@@ -32,7 +34,8 @@ const FileList = (props: IFileListProps) => {
             ))}
           </tbody>
         </table>
-      </div>
+      </Layout.Content>
+      <Layout.Footer></Layout.Footer>
     </Layout>
   )
 }

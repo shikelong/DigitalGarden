@@ -43,8 +43,15 @@
   "devDependencies": {
     "autoprefixer": "^10.2.5",
     "gatsby-plugin-postcss": "^4.5.0",
+    "husky": "^7.0.1",
+    "lint-staged": "^11.1.1",
     "postcss": "^8.2.15",
     "prettier": "2.3.0",
     "tailwindcss": "^2.1.2"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
   }
 }

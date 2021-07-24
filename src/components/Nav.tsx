@@ -1,9 +1,9 @@
 import React from "react"
-import useLocation from "../utils/useLocation"
 import { isEqualPathname } from "../utils/index"
 
 interface INavProps {
   className?: string
+  location: Location
 }
 
 type NavItem = {
@@ -27,8 +27,7 @@ const NavDatas: NavItem[] = [
 ]
 
 const Nav = (props: INavProps): JSX.Element => {
-  const { className } = props
-  const location = useLocation()
+  const { className, location } = props
 
   return (
     <ul
