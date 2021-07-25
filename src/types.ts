@@ -1,7 +1,8 @@
 export type Frontmatter = {
   title: string
-  data: string,
+  date: string
   path: string
+  tags?: string[]
 }
 export type Post = {
   id: string

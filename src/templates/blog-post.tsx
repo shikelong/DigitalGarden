@@ -3,16 +3,20 @@ import { Link, graphql } from "gatsby"
 import { MDXRenderer } from "gatsby-plugin-mdx"
 import Layout from "../layouts/Layout"
 import MdxBlock from "../components/MdxBlock"
+import {
+  ArrowLeftIcon,
+  ArrowRightIcon,
+  CalendarIcon,
+} from "@heroicons/react/outline"
 
 const BlogPostTemplate = ({ data, location }) => {
   const post = data.mdx
-  const siteTitle = data.site.siteMetadata?.title || `Title`
   const { previous, next } = data
 
   return (
     <Layout>
       <Layout.Header location={location}></Layout.Header>
-      <Layout.Content>
+      <Layout.Content className="max-w-5xl">
         <div>
           <article
             className="blog-post"
@@ -20,16 +24,27 @@ const BlogPostTemplate = ({ data, location }) => {
             itemType="http://schema.org/Article"
           >
             <header>
-              <h1 itemProp="headline">{post.title}</h1>
-              <p>{post.frontmatter.date}</p>
+              <h1
+                itemProp="headline"
+                className="text-4xl font-bold text-center mb-10"
+              >
+                {post.frontmatter.title}
+              </h1>
             </header>
+            <hr />
             <MdxBlock content={post.body}></MdxBlock>
             <hr />
-            <footer>
-              <p>rio</p>
+            <footer className="my-6">
+              <span className="text-sm text-gray-400 tracking-wide">
+                <CalendarIcon
+                  className="w-4 h-4 inline mr-1 relative"
+                  style={{ top: -1 }}
+                ></CalendarIcon>
+                {post.frontmatter.date}
+              </span>
             </footer>
           </article>
-          <nav className="blog-post-nav">
+          <nav className="blog-post-nav mt-24">
             <ul
               style={{
                 display: `flex`,
@@ -38,18 +53,29 @@ const BlogPostTemplate = ({ data, location }) => {
                 listStyle: `none`,
                 padding: 0,
               }}
+              className="mt-8"
             >
               <li>
                 {previous && (
-                  <Link to={`/${previous.slug}`} rel="prev">
-                    ← {previous.frontmatter.title}
+                  <Link
+                    to={`/${previous.slug}`}
+                    rel="prev"
+                    className="inline-flex items-center gap-2 hover:underline"
+                  >
+                    <ArrowLeftIcon className="h-4 inline-block"></ArrowLeftIcon>{" "}
+                    {previous.frontmatter.title}
                   </Link>
                 )}
               </li>
               <li>
                 {next && (
-                  <Link to={`/${next.slug}`} rel="next">
-                    {next.frontmatter.title} →
+                  <Link
+                    to={`/${next.slug}`}
+                    rel="next"
+                    className="inline-flex items-center gap-2 hover:underline"
+                  >
+                    {next.frontmatter.title}{" "}
+                    <ArrowRightIcon className="h-4 inline-block"></ArrowRightIcon>
                   </Link>
                 )}
               </li>
@@ -81,7 +107,7 @@ export const pageQuery = graphql`
       body
       frontmatter {
         title
-        date(formatString: "MMMM DD, YYYY")
+        date(formatString: "YYYY/MM/DD")
       }
     }
     previous: mdx(id: { eq: $previousPostId }) {

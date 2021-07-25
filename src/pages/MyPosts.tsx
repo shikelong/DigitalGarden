@@ -1,8 +1,10 @@
 import { graphql } from "gatsby"
 import _ from "lodash"
 import * as React from "react"
+import Tag from "../components/Tag"
 import Layout from "../layouts/Layout"
 import { Post } from "../types"
+import { CalendarIcon } from "@heroicons/react/outline"
 
 const MyPosts = ({ data, location }) => {
   return (
@@ -11,12 +13,25 @@ const MyPosts = ({ data, location }) => {
       <Layout.Content>
         <ul className="container max-w-4xl mx-auto border divide-y">
           {data.allMdx.nodes.map((post: Post, index) => (
-            <li key={index} className="p-4">
+            <li key={index} className="py-2 px-4">
               <a href={`/${_.trim(post.slug, "/")}`}>
-                <h3 className="font-bold text-lg hover:text-blue-400">
+                <h3 className="font-bold text-lg hover:text-blue-400 mb-2">
                   {post.frontmatter.title}
                 </h3>
-                {post.frontmatter.data}
+                <div className="flex items-center justify-between">
+                  <span className="text-sm text-gray-400 tracking-wide">
+                    <CalendarIcon
+                      className="w-4 h-4 inline mr-1 relative"
+                      style={{ top: -1 }}
+                    ></CalendarIcon>
+                    {post.frontmatter.date}
+                  </span>
+                  <span>
+                    {post.frontmatter.tags.map((tag: string, index) => (
+                      <Tag key={index}>{tag}</Tag>
+                    ))}
+                  </span>
+                </div>
               </a>
             </li>
           ))}
@@ -28,16 +43,13 @@ const MyPosts = ({ data, location }) => {
 }
 
 export const query = graphql`
-  query SITE_INDEX_QUERY {
-    allMdx(sort: { fields: [frontmatter___date], order: DESC }) {
+  query POSTS_QUERY {
+    allMdx(
+      filter: { frontmatter: { draft: { eq: false } } }
+      sort: { fields: [frontmatter___date], order: ASC }
+    ) {
       nodes {
-        id
-        excerpt(pruneLength: 250)
-        frontmatter {
-          title
-          date(formatString: "YYYY MMMM Do")
-        }
-        slug
+        ...PostSummary
       }
     }
   }

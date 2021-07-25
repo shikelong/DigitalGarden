@@ -7,12 +7,12 @@ interface IMdxBlockProps {
   content: any
 }
 
-export const MyH1 = (props) => <h1 className="text-5xl mt-4" {...props}></h1>
-export const MyH2 = (props) => <h2 className="text-4xl mt-4" {...props}></h2>
-export const MyH3 = (props) => <h3 className="text-3xl mt-3" {...props}></h3>
-export const MyH4 = (props) => <h4 className="text-2xl mt-2" {...props}></h4>
+export const MyH1 = (props) => <h1 className="text-4xl mt-4" {...props}></h1>
+export const MyH2 = (props) => <h2 className="text-3xl mt-4" {...props}></h2>
+export const MyH3 = (props) => <h3 className="text-2xl mt-3" {...props}></h3>
+export const MyH4 = (props) => <h4 className="text-xl mt-2" {...props}></h4>
 export const MyH5 = (props) => <h5 className="text-xl mt-2" {...props}></h5>
-export const MyH6 = (props) => <h6 className="text-lg mt-2" {...props}></h6>
+export const MyH6 = (props) => <h6 className="text-xl mt-2" {...props}></h6>
 
 export const MyParagraph = (props) => (
   <p className="text-base mt-2 p-2" {...props}></p>
@@ -76,7 +76,7 @@ const components = {
 const MdxBlock = (props: IMdxBlockProps) => {
   return (
     <MDXProvider components={components}>
-      <div className="markdownContainer">
+      <div className="markdownContainer pt-5">
         <MDXRenderer>{props.content}</MDXRenderer>
       </div>
     </MDXProvider>

@@ -23,9 +23,11 @@ Layout.Header = ({ location, children = null }) => {
   return children ?? <AppHeader location={location} />
 }
 
-Layout.Content = ({ children }) => {
+Layout.Content = ({ children, className = "" }) => {
   return (
-    <main className="px-3 py-5 lg:px-8 lg:py-10 container 2xl:container mx-auto flex-grow">
+    <main
+      className={`px-3 py-5 lg:px-8 lg:py-10 container 2xl:container mx-auto flex-grow ${className}`}
+    >
       {children}
     </main>
   )

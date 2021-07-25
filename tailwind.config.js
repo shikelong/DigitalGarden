@@ -7,6 +7,7 @@ module.exports = {
   theme: {
     extend: {},
   },
+  important: true,
   variants: {
     textColor: ["responsive", "dark", "dark-hover", "hover", "focus"],
     backgroundColor: ["dark", "responsive", "hover", "focus"],
