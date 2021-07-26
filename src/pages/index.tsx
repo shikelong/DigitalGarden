@@ -1,17 +1,15 @@
 import { graphql, useStaticQuery } from "gatsby"
 import * as React from "react"
 import BrowseAllPosts from "../components/BrowseAllPosts"
-import PostList from "../components/PostList"
+import PinnedList from "../components/PinnedList"
 import Layout from "../layouts/Layout"
 
 const IndexPage = ({ data, location }) => {
-  console.log("data", data)
-
   return (
-    <Layout>
+    <Layout className={`homePage bg-scroll bg-cover`}>
       <Layout.Header location={location}></Layout.Header>
       <Layout.Content>
-        <PostList />
+        <PinnedList />
         <BrowseAllPosts />
       </Layout.Content>
       <Layout.Footer></Layout.Footer>

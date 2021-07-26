@@ -4,15 +4,16 @@ import { AppFooter } from "./AppFooter"
 
 interface ILayoutProps {
   children: React.ReactElement[]
+  className?: string
 }
 
 const Layout = (props: ILayoutProps) => {
-  const { children } = props
+  const { children, className = "" } = props
 
   return (
     <section
       className={`dark:bg-gray-800 min-h-screen w-screen p-4 
-      dark:text-gray-50 text-black flex flex-col`}
+      dark:text-gray-50 text-black flex flex-col ${className}`}
     >
       {children}
     </section>
