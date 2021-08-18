@@ -25,10 +25,7 @@ const PinnedList = (props: IPinnedListProps) => {
       {pinnedPosts.map((post, i) => (
         <li
           key={post.id}
-          className={`border items-center mix-blend-darken h-48 p-4 shadow hover:shadow-lg bg-white rounded-lg colorful-card colorful-card-${_.random(
-            1,
-            5
-          )}`}
+          className={`border items-center h-48 p-4 bg-white rounded-lg border-black hover:shadow`}
         >
           <a
             href={`/${_.trim(post.slug, "/")}`}

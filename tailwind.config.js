@@ -14,6 +14,7 @@ module.exports = {
     extend: {
       fontSize: ["hover", "group-hover"],
       translate: ["group-hover"],
+      animation: ["hover", "focus"],
     },
   },
   plugins: [
