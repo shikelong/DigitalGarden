@@ -2,6 +2,7 @@ import React from "react"
 import { graphql } from "gatsby"
 import Layout from "../layouts/Layout"
 import Tag from "../components/Tag"
+import _ from "lodash"
 
 interface IFileListProps {
   data: any
@@ -32,7 +33,15 @@ const FileList = (props: IFileListProps) => {
               const frontmatter = node.childrenMdx[0]?.frontmatter || {}
               return (
                 <tr key={index} className="border-green-600 border">
-                  <td className="py-2 px-2">{node.relativePath}</td>
+                  <td className="py-2 px-2">
+                    <a
+                      href={`/${_.trim(frontmatter.slug, "/")}`}
+                      target="_blank"
+                      className="cursor-pointer hover:underline"
+                    >
+                      {node.relativePath}
+                    </a>
+                  </td>
                   <td className="py-2 px-2">{node.prettySize}</td>
                   <td className="py-2 px-2">{node.extension}</td>
                   <td className="py-2 px-2">{node.birthTime}</td>
@@ -70,6 +79,7 @@ export const query = graphql`
               tags
               draft
               category
+              slug
             }
           }
         }

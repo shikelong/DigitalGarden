@@ -1,6 +1,6 @@
 module.exports = {
   siteMetadata: {
-    title: "Little brids can remeber",
+    title: "Re:Creators",
   },
   plugins: [
     "gatsby-plugin-image",
