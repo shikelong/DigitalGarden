@@ -3,10 +3,10 @@ id: "d08f6ce8-74d1-4075-8623-90bddda2b5d5"
 title: "构建你的个人知识管理体系"
 slug: "knowledge-management-tools"
 date: "2021-08-31"
-draft: true
+draft: false
 category: ""
 description: ""
-pinned: false
+pinned: true
 tags:
   - "learning"
 ---
@@ -16,22 +16,148 @@ tags:
 我在学生时代并没有培养好的学习习惯，一是没有意识到个人知识管理体系的重要性，二是受制于当时的
 IT 技术还远远没有今天这么发达。一直处于一种懵懵懂懂进行学习的过程中，现在想起来其实是非常低效的。
 
-## 🙋 坏的学习和知识管理的常见问题：
+## 🙋 知识管理的常见问题：
 
 - 没有良好的知识输入渠道
-- 没有良好的学习和过程
-- <strong>缺少输出的过程</strong>
-- 缺乏`回归`记忆的过程
-- 缺乏`体系化`的学习过程
 
-## 3️⃣ 知识管理的三个阶段
+  知识有各种各样的来源，也有各种各样的存在形式。另外不同的渠道/来源获取的知识和信息，其质量往往也不同。网络上存在大量过时或者是错误的信息，我们应该选择高质量的信息来源，这样才能避免摄入垃圾信息。
+
+  下面我列举一些低质量的知识来源/渠道：
+
+  - CSDN
+  - 百度和 Google 所搜索出来的大量机翻的内容农场网站
+  - 国内各色云服务平台上的非云服务的技术文档
+  - 百度搜索/百度百科等
+  - 以营销为主要目的的各色技术公众号，其文章来源五花八门，并且常常以卖课为主要目的。
+
+  低质量的渠道有着这些问题 —— 二手知识甚至复制黏贴过来的信息泛滥，信息往往过时甚至错误，很多内容都是为了营销目的而放出来的。
+
+  而高质量的信息来源，往往信息更新准确，权威，二手知识比较少：
+
+  - 官方网站：如果你要使用一个新的第三方库或者工具，大部分情况下官方文档都是最好的选择。
+    - 官方文档大部分都是英文的，所以流畅的阅读英文文档，是很重要的事情。
+  - 像 MDN，MSDN 这样的存在维护人员和良好的反馈机制的文档/知识库网站。
+  - 大佬们的技术 Blog
+  - NewsLetter/RSS/Twitter/优秀的技术公众号: 其他的来源可能更多的是 pull 方式去获得知识。NewsLetter 和 RSS 是通过 push 方式来获取知识，这更容易让我们关注到一些行业内的新动向。
+  - Github issue，你可以在这里接触到第三方库的开发者，甚至直接去阅读源代码。
+  - 书：书籍的好处是编写书需要一定的门槛，因此质量通常都不会太差，另外一点就是包含的知识比较成体系化。坏处是在飞快变迁的 Web 开发领域，很多书籍其实是比较过时的。我更推荐通过书籍来学习一些比较稳定的知识和技能。
+    - 推荐通过读书学习： 算法和数据结构，编译原理，Git 等比较稳定的知识
+    - 不推荐通过读书来学习： React 等变化非常快的框架技术。
+  - Gitbook 等电子书：电子书可以比较完美的解决实体书容易过时的问题，而且比较容易和一些在线的 Demo 结合起来，另外做笔记也更方便。
+  - Youtube/Bilibili： 尽管我不喜欢通过视频去学习技术，因为我觉得视频的信息密度太低了。但是对于一些自己通过文档难以理解的知识，通过看视频，往往可以更快的理解。
+  - Course, 极客时间等网站上的优秀课程： 很多好二手知识往往是付费的。对于没那么重要或者自己一直难以理解的领域，看看大佬们帮你总结和归纳的知识，也是一个不错的选择。
+  - 高质量的 Podcast： 通过音频获得信息可以有效的利用很多空闲时间。但是你别指望在 Podcast 里面真正严肃的学习到技能，Podcast 更适合获取别人的一些经验和小的知识点。
+
+- 没有良好的学习过程
+
+  回忆一下，我们是否有过这样的学习过程：
+
+  - 永远都是从第一章开始读一本书
+  - 沉溺于即时满足，更愿意去学习一些浅显的知识，而不是去啃一些有一定门槛的知识。 比如说满足于用十几门编程语言编写冒泡排序，而不愿意花时间了解下框架的原理和底层实现。
+  - 缺少做笔记的过程，只求看一遍，至于过一段时间就会遗忘，Who care？
+
+  毫无疑问，上述学习过程都是有问题的。下面描述的学习过程是否更有效呢？
+
+  1. 发现学习目标： 通过梳理知识树，或者在工作/网上冲浪中发现自己知识体系中的不足点，从而选择学习的目标。
+  2. 寻找合适的学习材料： 对于不同类型的学习目标，通过搜索引擎，知乎，Github 等来源圈定对应的学习目标的学习材料。
+     - 比如，我观察到 TailwindCSS 近几年很火，我想比较成体系的学习 Tailwind，
+       我通过搜索得知 TailwindCSS 是一个 CSS Utility Library，没有太多的理论性知识。根据经验，对于此类目标，我推测 TailwindCSS 的官网可能是最佳的学习材料。因为很明显官方文档会是在正确性，时效性，权威性上都有保障的中心化信息来源。
+     - 如果我要学习 Git，算法这样的没有一个中心化信息来源，同时又具备一定复杂度的技能/知识。我可能通过搜索引擎找到推荐度比较高的书籍或者在线文档去学习，如果中间遇到了不理解的概念，
+       我会通过搜索引擎来解决。
+  3. 通过阅读/观看学习材料来实际进行学习的过程。
+     如何高效的掌握学习材料也是非常重要的。 对于书籍来说，根据 [如何阅读一本书](https://zh.wikipedia.org/zh-hans/%E5%A6%82%E4%BD%95%E9%96%B1%E8%AE%80%E4%B8%80%E6%9C%AC%E6%9B%B8#:~:text=%E3%80%8A%E5%A6%82%E4%BD%95%E9%98%85%E8%AF%BB%E4%B8%80%E6%9C%AC%E4%B9%A6,%E4%B8%80%E7%B3%BB%E5%88%97%E7%9A%84%E7%BB%8F%E5%85%B8%E5%90%8D%E8%91%97%E3%80%82)
+     上的说法，我们可以通过 `检视阅读`， `分析阅读` 等不同的方式来合理的阅读。
+
+     对于电子书和在线文档，我们也可以运用上述技巧，此外我们可以通过站内搜索等方式快速定位到我们想要学习的知识点。
+
+  4. 在学习的过程中，进行标注和笔记，并记录中途遇到的问题。从而形成临时笔记。
+
+     这一过程我们可以从文档中 Copy 重要的原文，并且对学习材料建立大纲。把对不同章节的批注和内容放在不同的大纲节点下。我们也可以通过 MindMap 来绘制可视化的大纲。
+     这一过程中我们同样可以通过运行代码，制作 Demo 等方式来对学习的知识点进行验证。
+
+  5. 学习完毕。并产出临时笔记。临时笔记是对原始学习材料的概括，提取了原始学习材料中的关键点 (Key Point) 和结构信息。并附加了个人的理解和批注。
+  6. 等一段时间以后对临时笔记进行整理形成正式笔记。 将临时笔记以**自己的话语**重新进行组织。在整理的过程需要及时消化临时笔记中记录的疑问点，进一步精简笔记中冗余的表达。
+
+  - 在我使用 RemNote 等笔记软件等过程中，我可能会在复习 FlashCard 中把临时笔记标注为 Edit Later，并抽出时间进行整理。
+  - 在使用 RemNote 这样的双链笔记的时候，你可以在这个过程或者上一过程中建立不同笔记/概念之间的双链关系。方便建立不同知识之间的联系。
+
+  7. 通过整理，你形成了比较正式和稳定的笔记内容。这些笔记的内容和质量相比临时笔记有所提升。同时以自己的话语来进行组织，也进一步增加了你对笔记内容的印象。通过在临时笔记和正式笔记整理之间设置间隔时间，我们把对临时笔记的整理作为了第一次回归记忆。
+  8. 通过间隔重复软件对正式笔记进行回归，并且在回归过程中对其进行更正和扩充。
+
+- 缺乏`回归`记忆的过程
+
+  回归记忆绝对是一个很容易被忽略的问题，艾宾浩斯遗忘曲线相信大家都有所了解，随着时间的推移，我们的大脑会慢慢的忘记我们之前记忆过的知识。但是如果我们有规律的进行复习，那么下一次遗忘的间隔也会变得更大。
+  间隔重复(Spaced Repetition) 就是这样的一种技术，利用 FlashCard 等方法来定期对知识点进行回顾。Anki 就是帮助我们进行回归记忆的软件。
+
+  实际上我现在使用 [RemNote](https://www.remnote.io/) 这一款软件来帮助我们进行知识管理（笔记，双链）以及回归记忆的整个过程。
+
+- 缺乏`体系化`的学习
+
+  网上充斥着很多碎片化知识和二手知识，因此我们需要在学习的时候，注意把不同的知识联系起来，通过建立知识点，知识面之间的联系，我们可以建立起自己的技能树，方便印证相似领域的知识和思想。
+  举个例子，通过把 MVC，MVVM，CS 等架构模式都放在 Multilayered Architecture 的框架下来思考，我们就可以思考这些架构模式中的不同层都在多层架构中扮演了什么角色，为什么要这样分层，层与层之间的关系是什么？
+  通过这样成体系的思考，我们就可以了解不同知识之间的联系，找出其共性和不同点，加深对其的理解。
+
+  另外进行体系化学习的过程，也是一个弥补自身知识漏洞的过程，可以有侧重的学习，但是我们要了解自己学习的知识和技能在一个更大的范围下扮演了什么角色，解决了什么问题，和其他技术的优缺点对比。
+
+  可以在网上查询下比如 2020 Web Developer RoadMap 这样的项目来了解 Web 开发体系所需要的知识，这样我们可以对自己的学习目标进行调整。
+  另外在学习的过程中，我们可以通过 Xmind 这样的脑图软件来对知识体系进行分类和归纳。
+
+- <strong>缺少输出的过程</strong>
+  另外一个容易被忽略的过程就是输出，很多人只是埋头输入内容，没有输出的过程，这样的不容易真正理解知识和验证你所学习到的知识。在输出的过程中，你不得不基于你的笔记和其他来源的内容对你要阐述的主题进行更有体系化的整理和阐述。
+  同时也容易收到别人的评论，从而发现自己理解的不够深入的部分。
+
+  根据学习金字塔理论，进行主动学习 (教授给他人，实践，讨论)，会让你的知识掌握的更好，不容易遗忘。我们可以看到学习内容平均留存率比较高的几种学习方式都和输出有一定的关系。
+  ![学习金字塔](data:image/jpeg;base64,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)
+
+## 3️⃣ 知识管理三阶段中的工具推荐
+
+在捕蛇者说的这一系列[个人知识管理体系系列](https://pythonhunter.org/episodes/ep23) 的 PodCast 中，嘉宾们把知识管理三个阶段，分别是： 输入，内化，输出。
+我也以这三个阶段为例，说明下我对这三个阶段的理解。
 
 ### 📘 输入
 
+输入就是一个从外界获取信息的过程。不同的输入来源影响了我们获得的信息的质量。在学习的过程中，我们需要评估我们从哪些来源可以获得更好的学习效果。并且对可信的来源进行管理。
+
+我的输入工具
+
+Pull：
+
+- 通过合理使用`搜索引擎`来主动获取知识，在搜索的过程中遇到的好的 Blog 会讲起添加到我的订阅列表。
+
+> 搜索引擎的使用也是有一定技巧的，参考： https://www.pcmag.com/how-to/23-google-search-tips-youll-want-to-learn
+
+Push：
+
+- 通过 `RSS Reader` 订阅技术 Blog 的更新
+- 通过 `News Letter` 定期接受相关领域的信息动向。
+
+材料存储：
+
+- 通过 `Pocket` 来存储一些稍后可能需要阅读的文章
+- 通过 `iCloud` 进行电子书的跨平台管理，我会通过 Mac，Ipad，Windows 笔记本等多个设备进行技术书籍的阅读。
+
 ### 🧘 内化
+
+对我来说，内化的过程主要是通过阅读学习材料，对其进行标注和笔记整理来完成的。这一阶段我会使用的工具有这些：
+
+标注：
+
+- PDF: Mac Preview, Adobe Acrobat Reader 这两个软件的标注格式是通用的，所以根据平台决定使用哪个。
+- Web: [Weava Highlight](https://www.weavatools.com/) 网页标注插件，只在 PC/Mac 端浏览器中可用。ipad/手机 不可用，可以进行 Highlight 和 Note。
+
+笔记软件
+
+- [Notion](https://www.notion.so/): Notion 不仅仅是一个笔记软件，也是一个 All in One 的 WorkSpace 和 Wiki 系统。
+  不谈 Notion 在 Wiki 和建站方面的功能， Notion 作为笔记软件的优点我认为主要有这么几点 —— `\`模式和 Markdown 提供的高效的输入体验;免费;美观的 UI，`backlink` 和 `syncblock` 等特性带来的类似双链的能力，可以帮助建立知识之间的联系;对 ember 内容集成的良好的支持 —— 方便的嵌入 Youtube Video，Github Gist，Google Docs，甚至还有在线图表的嵌入。
+- [RemNote](https://www.remnote.io/): 我之前在使用 Notion，但是后来因为 Notion 没有提供完善的双链功能，所以迁移到了 RemNote， RemNote 的嵌入内容支持没有 Notion 那么强大，
+  同时输入效率也没有 Notion 那么高，对中文的支持也有一些问题。好处是提供了 bi-link，daily notes，flashcard，pdf 标注，知识图谱等功能。在笔记+回归记忆这两点来看，RemNote 可能比 Notion 的体验更好。
 
 ### 🖋 输出
 
-## 🔧 工具推荐
+在输出方面，坦白来说我也刚刚开始。开始搭建个人博客是一个很好的选择。如果你不想折腾，微信公众号，知乎，掘金，Github Issue 都是很好的知识输出渠道。
+另外也可以在公司和社区多进行一些专题分享。
 
 ## 总结
+
+知识管理只是学习的一个方面，另外的比较重要的方面是养成好的习惯，掌握好的技巧来帮助我们进行学习。
+尽管如此，知识管理体系的搭建我觉得对于个人来说还是非常重要的。通过把知识管理进行阶段性的划分，并辅佐以不同的工具。我们可以维护自己的知识/技能树，扩充自己的能力边界。
