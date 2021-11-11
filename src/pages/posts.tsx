@@ -1,12 +1,12 @@
+import { CalendarIcon } from "@heroicons/react/outline"
 import { graphql } from "gatsby"
 import _ from "lodash"
 import * as React from "react"
 import Tag from "../components/Tag"
 import Layout from "../layouts/Layout"
 import { Post } from "../types"
-import { CalendarIcon } from "@heroicons/react/outline"
 
-const MyPosts = ({ data, location }) => {
+const Posts = ({ data, location }) => {
   return (
     <Layout>
       <Layout.Header location={location}></Layout.Header>
@@ -43,6 +43,16 @@ const MyPosts = ({ data, location }) => {
 }
 
 export const query = graphql`
+  fragment PostSummary on Mdx {
+    id
+    excerpt(pruneLength: 250)
+    frontmatter {
+      title
+      date(formatString: "YYYY/MM/DD")
+      tags
+    }
+    slug
+  }
   query POSTS_QUERY {
     allMdx(
       filter: { frontmatter: { draft: { eq: false } } }
@@ -55,4 +65,4 @@ export const query = graphql`
   }
 `
 
-export default MyPosts
+export default Posts

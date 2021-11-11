@@ -13,17 +13,12 @@ type NavItem = {
 }
 
 const NavDatas: NavItem[] = [
-  { title: "Home", path: "/", icon: "🏡" },
-  {
-    title: "Garden",
-    path: "/DigitalGarden",
-    icon: "🌿",
-  },
   {
     title: "Posts",
-    path: "/MyPosts",
-    icon: "✍️",
+    path: "/posts",
+    icon: "",
   },
+  { title: "About", path: "/about", icon: "" },
 ]
 
 const Nav = (props: INavProps): JSX.Element => {

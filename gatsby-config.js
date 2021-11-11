@@ -1,6 +1,6 @@
 module.exports = {
   siteMetadata: {
-    title: "Re:Creators",
+    title: "孤筏重洋",
   },
   plugins: [
     "gatsby-plugin-image",

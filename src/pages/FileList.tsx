@@ -9,6 +9,11 @@ interface IFileListProps {
   location: Location
 }
 
+/**
+ * This page is only for test. you can via this page to check the unpublished pages.
+ * @param props
+ * @returns
+ */
 const FileList = (props: IFileListProps) => {
   const { data, location } = props
   console.log(data)

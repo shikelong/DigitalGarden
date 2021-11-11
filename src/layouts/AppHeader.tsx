@@ -1,8 +1,7 @@
 import React from "react"
-import SiteSearch from "../components/SiteSearch"
 import SiteLogo from "../components/SiteLogo"
 import ThemeToggle from "../components/ThemeToggle"
-import Nav from "../components/Nav"
+import Nav from "./Nav"
 
 type AppHeaderProps = {
   location: Location
@@ -12,7 +11,6 @@ export const AppHeader = ({ location }: AppHeaderProps): JSX.Element => (
     <SiteLogo />
     <Nav location={location} />
     <div className="float-right flex items-center">
-      <SiteSearch />
       <ThemeToggle />
     </div>
   </header>
