@@ -10,42 +10,58 @@ type NavItem = {
   title: string
   path: string
   icon: string
+  isHidden?: boolean
 }
 
 const NavDatas: NavItem[] = [
+  {
+    title: "Home",
+    path: "/",
+    icon: "",
+  },
   {
     title: "Posts",
     path: "/posts",
     icon: "",
   },
-  { title: "About", path: "/about", icon: "" },
+  {
+    title: "Moments",
+    path: "/moments",
+    icon: "",
+    isHidden: false,
+  },
+  { title: "About", path: "/about", icon: "", isHidden: true },
 ]
 
 const Nav = (props: INavProps): JSX.Element => {
   const { className, location } = props
 
   return (
-    <ul
-      className={`text-left inline-block ${className} text-lg justify-center border-b relative`}
+    <nav
+      className={`${className} border-black border-2 text-xl py-8 px-2 top-1/4 left-4 fixed backdrop-blur-sm bg-gray-50 shadow-lg z-10`}
     >
-      {NavDatas.map(({ title, path, icon }) => (
-        <li
-          key={path}
-          className={`group px-2 pb-1 text-center no-underline w-36 inline-block mx-2 cursor-pointer hover:text-blue-400 ${
-            isEqualPathname(location.pathname, path)
-              ? "border-blue-400 border-b-4"
-              : ""
-          }`}
-        >
-          <a href={path}>
-            {title}
-            <span className="bottom-2 transform absolute group-hover:-translate-y-1  ml-2 text-2xl">
-              {icon}
-            </span>
-          </a>
-        </li>
-      ))}
-    </ul>
+      <ul>
+        {NavDatas.filter((item) => !item.isHidden).map(
+          ({ title, path, icon }) => (
+            <li
+              key={path}
+              className={`group px-2 mb-2 pb-1 text-center no-underline mx-2 cursor-pointer hover:text-green-600 ${
+                isEqualPathname(location.pathname, path)
+                  ? "text-underline font-bold"
+                  : ""
+              }`}
+            >
+              <a href={path}>
+                {title}
+                <span className="bottom-2 transform absolute group-hover:-translate-y-1  ml-2 text-2xl">
+                  {icon}
+                </span>
+              </a>
+            </li>
+          )
+        )}
+      </ul>
+    </nav>
   )
 }
 

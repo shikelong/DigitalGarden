@@ -4,7 +4,7 @@ import { HeartIcon } from "@heroicons/react/solid"
 export const AppFooter = () => (
   <footer className="flex justify-center mx-auto text-sm">
     {" "}
-    <HeartIcon className="text-red-400 w-5 mr-2 " />
+    <HeartIcon className="text-black w-5 mr-2 " />
     <a
       href="https://www.gatsbyjs.com/"
       target="_blank"

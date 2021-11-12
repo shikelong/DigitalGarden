@@ -10,12 +10,13 @@ const Posts = ({ data, location }) => {
   return (
     <Layout>
       <Layout.Header location={location}></Layout.Header>
+      <Layout.Sidebar location={location} />
       <Layout.Content>
-        <ul className="container max-w-4xl mx-auto border divide-y">
+        <ul className="container max-w-4xl mx-auto border-2 border-black divide-y">
           {data.allMdx.nodes.map((post: Post, index) => (
-            <li key={index} className="py-2 px-4">
+            <li key={index} className="py-2 px-4 mb-3 border-black">
               <a href={`/${_.trim(post.slug, "/")}`}>
-                <h3 className="font-bold text-lg hover:text-blue-400 mb-2">
+                <h3 className="font-bold text-lg hover:text-purple-700 mb-2">
                   {post.frontmatter.title}
                 </h3>
                 <div className="flex items-center justify-between">

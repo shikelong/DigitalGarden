@@ -1,6 +1,7 @@
 import React from "react"
 import { AppHeader } from "./AppHeader"
 import { AppFooter } from "./AppFooter"
+import Nav from "./Nav"
 
 interface ILayoutProps {
   children: React.ReactElement[]
@@ -35,6 +36,10 @@ Layout.Content = ({ children, className = "" }) => {
 
 Layout.Footer = ({ children = null }) => {
   return children ?? <AppFooter />
+}
+
+Layout.Sidebar = ({ children = null, location }) => {
+  return children ?? <Nav location={location} />
 }
 
 export default Layout

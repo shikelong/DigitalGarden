@@ -14,7 +14,7 @@ const ThemeToggle = (props: IThemeToggleProps) => {
 
   return (
     <div
-      className="cursor-pointer ml-6 inline-block"
+      className="cursor-pointer ml-6 inline-block fixed top-4 right-4"
       onClick={handleToggleDarkMode}
     >
       {darkMode ? (

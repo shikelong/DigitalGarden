@@ -1,1 +1,3 @@
-- read system dark mode prefer when user access site at first time.
+- [] read system dark mode prefer when user access site at first time.
+- [] responsive web design
+- [] introduce animations and more UI essentials elements.

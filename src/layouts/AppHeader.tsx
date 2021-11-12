@@ -7,9 +7,8 @@ type AppHeaderProps = {
   location: Location
 }
 export const AppHeader = ({ location }: AppHeaderProps): JSX.Element => (
-  <header className="w-full mx-auto px-4 flex items-center justify-between gap-8">
+  <header className="w-full mx-auto px-4 relative">
     <SiteLogo />
-    <Nav location={location} />
     <div className="float-right flex items-center">
       <ThemeToggle />
     </div>
