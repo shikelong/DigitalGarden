@@ -27,7 +27,7 @@ Layout.Header = ({ location, children = null }) => {
 Layout.Content = ({ children, className = "" }) => {
   return (
     <main
-      className={`px-3 py-5 lg:px-8 lg:py-10 container 2xl:container mx-auto flex-grow ${className}`}
+      className={`px-3 py-5 lg:px-8 lg:py-10 max-w-4xl container mx-auto flex-grow ${className}`}
     >
       {children}
     </main>

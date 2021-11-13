@@ -20,17 +20,16 @@ const NavDatas: NavItem[] = [
     icon: "",
   },
   {
-    title: "Posts",
-    path: "/posts",
-    icon: "",
-  },
-  {
     title: "Moments",
     path: "/moments",
     icon: "",
     isHidden: false,
   },
-  { title: "About", path: "/about", icon: "", isHidden: true },
+  {
+    title: "About",
+    path: "/about",
+    icon: "",
+  },
 ]
 
 const Nav = (props: INavProps): JSX.Element => {
