@@ -33,18 +33,18 @@ const NavDatas: NavItem[] = [
 ]
 
 const Nav = (props: INavProps): JSX.Element => {
-  const { className, location } = props
+  const { className = "", location } = props
 
   return (
     <nav
-      className={`${className} border-black border-2 text-xl py-8 px-2 top-1/4 left-4 fixed backdrop-blur-sm bg-gray-50 shadow-lg z-10`}
+      className={`${className} border-2 border-black xl:fixed top-1/4 left-4 text-xl py-2 xl:py-8 px-2 backdrop-blur-sm bg-gray-50 shadow-lg z-10`}
     >
-      <ul>
+      <ul className="flex justify-center items-center xl:flex-col">
         {NavDatas.filter((item) => !item.isHidden).map(
           ({ title, path, icon }) => (
             <li
               key={path}
-              className={`group px-2 mb-2 pb-1 text-center no-underline mx-2 cursor-pointer hover:text-green-600 ${
+              className={`group px-2 xl:mb-4 text-center no-underline mx-2 cursor-pointer hover:text-green-600 ${
                 isEqualPathname(location.pathname, path)
                   ? "text-underline font-bold"
                   : ""
