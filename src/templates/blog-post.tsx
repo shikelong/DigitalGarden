@@ -16,6 +16,7 @@ const BlogPostTemplate = ({ data, location }) => {
   return (
     <Layout>
       <Layout.Header location={location}></Layout.Header>
+      <Layout.Sidebar location={location}></Layout.Sidebar>
       <Layout.Content className="max-w-5xl">
         <div>
           <article
