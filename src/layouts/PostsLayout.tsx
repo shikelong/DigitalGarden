@@ -1,5 +1,4 @@
 import React from "react"
-import SiteSearch from "../components/SiteSearch"
 import SiteLogo from "../components/SiteLogo"
 import ThemeToggle from "../components/ThemeToggle"
 import { HeartIcon } from "@heroicons/react/solid"
@@ -14,7 +13,7 @@ const defaultHeader = (
   <header className="container mx-auto px-4 flex items-center justify-between">
     <SiteLogo />
     <div>
-      <SiteSearch />
+      {/* <SiteSearch /> */}
       <ThemeToggle />
     </div>
   </header>

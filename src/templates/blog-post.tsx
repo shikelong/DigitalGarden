@@ -8,6 +8,7 @@ import {
   ArrowRightIcon,
   CalendarIcon,
 } from "@heroicons/react/outline"
+import {Helmet} from "react-helmet";
 
 const BlogPostTemplate = ({ data, location }) => {
   const post = data.mdx
@@ -15,6 +16,9 @@ const BlogPostTemplate = ({ data, location }) => {
 
   return (
     <Layout>
+      <Helmet>
+        <link rel="stylesheet" href="https://unpkg.com/heti/umd/heti.min.css"/>
+      </Helmet>
       <Layout.Header location={location}></Layout.Header>
       <Layout.Sidebar location={location}></Layout.Sidebar>
       <Layout.Content className="max-w-5xl">
