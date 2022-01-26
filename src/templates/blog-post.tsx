@@ -18,6 +18,13 @@ const BlogPostTemplate = ({ data, location }) => {
     <Layout>
       <Helmet>
         <link rel="stylesheet" href="https://unpkg.com/heti/umd/heti.min.css"/>
+        <script src="//unpkg.com/heti/umd/heti-addon.min.js"></script>
+        <script>
+          {`window.onload = function() {
+              var heti = new Heti('.heti');
+              heti.autoSpacing();
+            }`}
+        </script>
       </Helmet>
       <Layout.Header location={location}></Layout.Header>
       <Layout.Sidebar location={location}></Layout.Sidebar>

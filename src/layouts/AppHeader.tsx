@@ -1,7 +1,6 @@
-import React from "react"
+import React from 'react'
 import SiteLogo from "../components/SiteLogo"
 import ThemeToggle from "../components/ThemeToggle"
-import Nav from "./Nav"
 
 type AppHeaderProps = {
   location: Location
