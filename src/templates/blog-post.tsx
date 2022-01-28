@@ -8,7 +8,9 @@ import {
   ArrowRightIcon,
   CalendarIcon,
 } from "@heroicons/react/outline"
-import {Helmet} from "react-helmet";
+import { Helmet } from "react-helmet"
+import { AppHeader } from "../layouts/AppHeader"
+import ShowCase from "../components/ShowCase"
 
 const BlogPostTemplate = ({ data, location }) => {
   const post = data.mdx
@@ -17,7 +19,7 @@ const BlogPostTemplate = ({ data, location }) => {
   return (
     <Layout>
       <Helmet>
-        <link rel="stylesheet" href="https://unpkg.com/heti/umd/heti.min.css"/>
+        <link rel="stylesheet" href="https://unpkg.com/heti/umd/heti.min.css" />
         <script src="//unpkg.com/heti/umd/heti-addon.min.js"></script>
         <script>
           {`window.onload = function() {
@@ -26,7 +28,14 @@ const BlogPostTemplate = ({ data, location }) => {
             }`}
         </script>
       </Helmet>
-      <Layout.Header location={location}></Layout.Header>
+      <Layout.Header location={location}>
+        <ShowCase
+          size="small"
+          className="bg-gradient-to-b from-white to-slate-500 text-white"
+        >
+          <AppHeader location={location} />
+        </ShowCase>
+      </Layout.Header>
       <Layout.Sidebar location={location}></Layout.Sidebar>
       <Layout.Content className="max-w-5xl">
         <div>

@@ -3,6 +3,7 @@ import { generateColorGradientClass } from "../utils/colorUtils"
 import { AppFooter } from "./AppFooter"
 import { AppHeader } from "./AppHeader"
 import Ocean from "../components/Ocean"
+import OceanShowCase from "components/OceanShowCase"
 
 interface ILayoutProps {
   children: React.ReactElement[]
@@ -23,23 +24,6 @@ const Layout = (props: ILayoutProps) => {
 
 Layout.Header = ({ location, children = null }) => {
   return children ?? <AppHeader location={location} />
-}
-
-Layout.ShowCase = (props: React.PropsWithChildren<{}>) => {
-  return (
-    <div
-      className="relative overflow-hidden p-8"
-      style={{
-        height: "60vh",
-        width: "100vw",
-        background:
-          "radial-gradient(ellipse at center, rgba(255,254,234,1) 0%, rgba(255,254,234,1) 35%, #B7E8EB 100%)",
-      }}
-    >
-      {props.children}
-      <Ocean></Ocean>
-    </div>
-  )
 }
 
 Layout.Content = ({ children, className = "" }) => {

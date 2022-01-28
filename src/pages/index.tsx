@@ -7,14 +7,17 @@ import Layout from "../layouts/Layout"
 import { Post } from "../types"
 import Card from "../components/Card"
 import PostCard from "../components/PostCard"
+import OceanShowCase from "../components/OceanShowCase"
+import { AppHeader } from "../layouts/AppHeader"
 
 const Posts = ({ data, location }) => {
   return (
     <Layout>
-      <Layout.ShowCase>
-        <Layout.Header location={location}></Layout.Header>
-      </Layout.ShowCase>
-
+      <Layout.Header location={location}>
+        <OceanShowCase>
+          <AppHeader location={location} />
+        </OceanShowCase>
+      </Layout.Header>
       <Layout.Sidebar location={location} />
       <Layout.Content>
         <ul className="container max-w-4xl mx-auto divide-y bg-gradient-to-t from-blue-500 to-emerald-600">
