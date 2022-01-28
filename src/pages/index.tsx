@@ -6,36 +6,20 @@ import Tag from "../components/Tag"
 import Layout from "../layouts/Layout"
 import { Post } from "../types"
 import Card from "../components/Card"
+import PostCard from "../components/PostCard"
 
 const Posts = ({ data, location }) => {
   return (
     <Layout>
-      <Layout.Header location={location}></Layout.Header>
+      <Layout.ShowCase>
+        <Layout.Header location={location}></Layout.Header>
+      </Layout.ShowCase>
+
       <Layout.Sidebar location={location} />
       <Layout.Content>
-        <ul className="container max-w-4xl mx-auto shadow-md border-indigo-50 border-black divide-y">
+        <ul className="container max-w-4xl mx-auto divide-y bg-gradient-to-t from-blue-500 to-emerald-600">
           {data.allMdx.nodes.map((post: Post, index) => (
-            <Card as={"li"} key={index}>
-              <a href={`/${_.trim(post.slug, "/")}`}>
-                <h3 className="font-bold text-lg hover:text-purple-700 mb-2">
-                  {post.frontmatter.title}
-                </h3>
-                <div className="flex items-center justify-between">
-                  <span className="text-sm text-gray-400 tracking-wide">
-                    <CalendarIcon
-                      className="w-4 h-4 inline mr-1 relative"
-                      style={{ top: -1 }}
-                    ></CalendarIcon>
-                    {post.frontmatter.date}
-                  </span>
-                  <span>
-                    {post.frontmatter.tags.map((tag: string, index) => (
-                      <Tag key={index}>{tag}</Tag>
-                    ))}
-                  </span>
-                </div>
-              </a>
-            </Card>
+            <PostCard key={index} postContent={post} />
           ))}
         </ul>
       </Layout.Content>

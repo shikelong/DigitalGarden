@@ -1,7 +1,8 @@
 import React from "react"
-import { AppHeader } from "./AppHeader"
+import { generateColorGradientClass } from "../utils/colorUtils"
 import { AppFooter } from "./AppFooter"
-import Nav from "./Nav"
+import { AppHeader } from "./AppHeader"
+import Ocean from "../components/Ocean"
 
 interface ILayoutProps {
   children: React.ReactElement[]
@@ -13,7 +14,7 @@ const Layout = (props: ILayoutProps) => {
 
   return (
     <section
-      className={`dark:bg-gray-700 min-h-screen w-screen p-4 dark:text-gray-50 text-black flex flex-col ${className}`}
+      className={`dark:bg-gray-700 min-h-screen w-screen dark:text-gray-50 text-black flex flex-col ${className}`}
     >
       {children}
     </section>
@@ -22,6 +23,23 @@ const Layout = (props: ILayoutProps) => {
 
 Layout.Header = ({ location, children = null }) => {
   return children ?? <AppHeader location={location} />
+}
+
+Layout.ShowCase = (props: React.PropsWithChildren<{}>) => {
+  return (
+    <div
+      className="relative overflow-hidden p-8"
+      style={{
+        height: "60vh",
+        width: "100vw",
+        background:
+          "radial-gradient(ellipse at center, rgba(255,254,234,1) 0%, rgba(255,254,234,1) 35%, #B7E8EB 100%)",
+      }}
+    >
+      {props.children}
+      <Ocean></Ocean>
+    </div>
+  )
 }
 
 Layout.Content = ({ children, className = "" }) => {

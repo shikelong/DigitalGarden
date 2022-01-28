@@ -15,13 +15,13 @@ const ThemeToggle = (props: IThemeToggleProps) => {
 
   return (
     <div
-      className="cursor-pointer ml-6 inline-block fixed top-4 right-4"
+      className="cursor-pointer ml-6 inline-block fixed top-6 right-6"
       onClick={handleToggleDarkMode}
     >
       {_isDarkMode ? (
-        <SunIcon className="w-8 text-white" />
+        <SunIcon className="w-8  text-yellow-400" />
       ) : (
-        <MoonIcon className="w-8 text-black" />
+        <MoonIcon className="w-8 text-blue-600" />
       )}
     </div>
   )
