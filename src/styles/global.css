@@ -10,6 +10,6 @@ html {
     Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 }
 
-html[class~="scheme-dark"] .siteLogo > img {
+html[class~="dark"] .siteLogo > img {
   filter: invert(50%) brightness(1.8);
 }

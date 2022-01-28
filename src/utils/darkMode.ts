@@ -2,46 +2,42 @@ import { useEffect } from "react"
 
 const isBrowser = typeof window !== "undefined"
 
-export function toggleDarkMode() {
-  const html = document.getElementsByTagName("html")[0]
-  setUserPreferToLocalStorage(!html.classList.contains("scheme-dark"))
-  html.classList.toggle("scheme-dark")
+const DarkClassName = "dark"
+
+export enum Theme {
+  Light = "light",
+  Dark = "dark",
+}
+
+export function toggleDarkMode(newTheme: Theme) {
+  localStorage.theme = newTheme
+  autoAsyncStorageToDOM()
+}
+
+export function removeUserPrefer() {
+  localStorage.removeItem("theme")
 }
 
 export function isDarkMode(): boolean {
   if (isBrowser) {
     const html = document.getElementsByTagName("html")[0]
-    return html.classList.contains("scheme-dark")
+    return html.classList.contains(DarkClassName)
   }
 
-  return false
+  return Theme.Dark === localStorage.theme
 }
 
-export function useUsePrefersMode(): void {
-  useEffect(() => {
-    const isPeferDarkMode = isUserPreferDarkMode()
-    const isCurrentDarkMode = isDarkMode()
-    //TODO: store dark mode select option to ls.
-
-    if (isPeferDarkMode && !isCurrentDarkMode) {
-      toggleDarkMode()
-    } else if (!isPeferDarkMode && isCurrentDarkMode) {
-      toggleDarkMode()
-    }
-  }, [])
+function autoAsyncStorageToDOM() {
+  // On page load or when changing themes, best to add inline in `head` to avoid FOUC
+  if (
+    localStorage.theme === "dark" ||
+    (!("theme" in localStorage) &&
+      window.matchMedia("(prefers-color-scheme: dark)").matches)
+  ) {
+    document.documentElement.classList.add("dark")
+  } else {
+    document.documentElement.classList.remove("dark")
+  }
 }
 
-export function isUserPreferDarkMode(): boolean {
-  const isSystemDarkMode =
-    window.matchMedia &&
-    window.matchMedia("(prefers-color-scheme: dark)").matches
-
-  const darkModeValue = localStorage.getItem("isDarkMode")
-  const isSiteDarkMode = darkModeValue === "1"
-
-  return darkModeValue === undefined ? isSystemDarkMode : isSiteDarkMode
-}
-
-function setUserPreferToLocalStorage(isDark: boolean): void {
-  localStorage.setItem("isDarkMode", isDark ? "1" : "0")
-}
+autoAsyncStorageToDOM()

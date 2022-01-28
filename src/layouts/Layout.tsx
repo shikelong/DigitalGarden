@@ -13,8 +13,7 @@ const Layout = (props: ILayoutProps) => {
 
   return (
     <section
-      style={{ backgroundColor: "rgb(239,237,235)" }}
-      className={`dark:bg-gray-800 min-h-screen w-screen p-4 dark:text-gray-50 text-black flex flex-col ${className}`}
+      className={`dark:bg-gray-700 min-h-screen w-screen p-4 dark:text-gray-50 text-black flex flex-col ${className}`}
     >
       {children}
     </section>

@@ -2,26 +2,17 @@ const plugin = require("tailwindcss/plugin")
 const selectorParser = require("postcss-selector-parser")
 
 module.exports = {
-  purge: ["./src/**/*.{js,jsx,ts,tsx}"],
-  darkMode: "media", // or 'media' or 'class'
+  content: ["./src/**/*.{js,jsx,ts,tsx}"],
   theme: {
     extend: {},
   },
+  darkMode: 'class',
   important: true,
-  variants: {
-    textColor: ["responsive", "dark", "dark-hover", "hover", "focus"],
-    backgroundColor: ["dark", "responsive", "hover", "focus"],
-    extend: {
-      fontSize: ["hover", "group-hover"],
-      translate: ["group-hover"],
-      animation: ["hover", "focus"],
-    },
-  },
   plugins: [
     "gatsby-plugin-postcss",
-    plugin(function ({ addVariant, prefix }) {
-      addVariant("dark", ({ modifySelectors, separator }) => {
-        modifySelectors(({ selector }) => {
+    plugin(function ({addVariant, prefix}) {
+      addVariant("dark", ({modifySelectors, separator}) => {
+        modifySelectors(({selector}) => {
           return selectorParser((selectors) => {
             selectors.walkClasses((sel) => {
               sel.value = `dark${separator}${sel.value}`
@@ -34,9 +25,9 @@ module.exports = {
         })
       })
     }),
-    plugin(function ({ addVariant, e }) {
-      addVariant("dark-hover", ({ modifySelectors, separator }) => {
-        modifySelectors(({ className }) => {
+    plugin(function ({addVariant, e}) {
+      addVariant("dark-hover", ({modifySelectors, separator}) => {
+        modifySelectors(({className}) => {
           return `.scheme-dark .${e(
             `dark\:hover${separator}${className}`
           )}:hover`

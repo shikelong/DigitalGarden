@@ -5,6 +5,7 @@ import * as React from "react"
 import Tag from "../components/Tag"
 import Layout from "../layouts/Layout"
 import { Post } from "../types"
+import Card from "../components/Card"
 
 const Posts = ({ data, location }) => {
   return (
@@ -14,7 +15,7 @@ const Posts = ({ data, location }) => {
       <Layout.Content>
         <ul className="container max-w-4xl mx-auto shadow-md border-indigo-50 border-black divide-y">
           {data.allMdx.nodes.map((post: Post, index) => (
-            <li key={index} className="py-2 pb-1 px-4 mb-2">
+            <Card as={"li"} key={index}>
               <a href={`/${_.trim(post.slug, "/")}`}>
                 <h3 className="font-bold text-lg hover:text-purple-700 mb-2">
                   {post.frontmatter.title}
@@ -34,7 +35,7 @@ const Posts = ({ data, location }) => {
                   </span>
                 </div>
               </a>
-            </li>
+            </Card>
           ))}
         </ul>
       </Layout.Content>
