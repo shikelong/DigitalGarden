@@ -13,7 +13,8 @@ const Layout = (props: ILayoutProps) => {
 
   return (
     <section
-      className={`dark:bg-gray-800 min-h-screen w-screen p-4 bg-white dark:text-gray-50 text-black flex flex-col ${className}`}
+      style={{ backgroundColor: "rgb(239,237,235)" }}
+      className={`dark:bg-gray-800 min-h-screen w-screen p-4 dark:text-gray-50 text-black flex flex-col ${className}`}
     >
       {children}
     </section>
@@ -39,7 +40,8 @@ Layout.Footer = ({ children = null }) => {
 }
 
 Layout.Sidebar = ({ children = null, location }) => {
-  return children ?? <Nav location={location} />
+  // return children ?? <Nav location={location} />
+  return children ?? null
 }
 
 export default Layout
