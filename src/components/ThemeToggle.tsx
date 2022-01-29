@@ -1,11 +1,13 @@
 import React, { useCallback, useState } from "react"
 import { isDarkMode, Theme, toggleDarkMode } from "../utils/darkMode"
 import { MoonIcon, SunIcon } from "@heroicons/react/solid"
+import { useSafeWindow } from "../utils/useSafeWindow"
 
 interface IThemeToggleProps {}
 
 const ThemeToggle = (props: IThemeToggleProps) => {
-  const [_isDarkMode, setIsDarkMode] = useState(() => isDarkMode())
+  const initialDarkMode = useSafeWindow<Boolean>(() => isDarkMode(), false)
+  const [_isDarkMode, setIsDarkMode] = useState(() => initialDarkMode)
 
   const handleToggleDarkMode = useCallback(() => {
     const newTheme = _isDarkMode ? Theme.Light : Theme.Dark
