@@ -7,19 +7,19 @@ import Layout from "../layouts/Layout"
 import { Post } from "../types"
 import { autoAsyncStorageToDOM } from "../utils/darkMode"
 
-const Posts = ({ data, location }) => {
+const Posts = ({ data }) => {
   useEffect(() => {
     autoAsyncStorageToDOM()
   }, [])
 
   return (
     <Layout>
-      <Layout.Header location={location}>
+      <Layout.Header>
         <OceanShowCase>
-          <AppHeader location={location} />
+          <AppHeader />
         </OceanShowCase>
       </Layout.Header>
-      <Layout.Sidebar location={location} />
+      <Layout.Sidebar />
       <Layout.Content>
         <ul className="container max-w-4xl mx-auto divide-y bg-gradient-to-t from-blue-500 to-emerald-600">
           {data.allMdx.nodes.map((post: Post, index) => (

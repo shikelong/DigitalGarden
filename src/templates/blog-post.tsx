@@ -12,7 +12,7 @@ import { Helmet } from "react-helmet"
 import { AppHeader } from "../layouts/AppHeader"
 import ShowCase from "../components/ShowCase"
 
-const BlogPostTemplate = ({ data, location }) => {
+const BlogPostTemplate = ({ data }) => {
   const post = data.mdx
   const { previous, next } = data
 
@@ -28,15 +28,15 @@ const BlogPostTemplate = ({ data, location }) => {
             }`}
         </script>
       </Helmet>
-      <Layout.Header location={location}>
+      <Layout.Header>
         <ShowCase
           size="small"
           className="bg-gradient-to-b from-white to-slate-500 text-white"
         >
-          <AppHeader location={location} />
+          <AppHeader />
         </ShowCase>
       </Layout.Header>
-      <Layout.Sidebar location={location}></Layout.Sidebar>
+      <Layout.Sidebar></Layout.Sidebar>
       <Layout.Content className="max-w-5xl">
         <div>
           <article

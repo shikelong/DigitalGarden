@@ -1,9 +1,6 @@
 import React from "react"
-import { generateColorGradientClass } from "../utils/colorUtils"
 import { AppFooter } from "./AppFooter"
 import { AppHeader } from "./AppHeader"
-import Ocean from "../components/Ocean"
-import OceanShowCase from "components/OceanShowCase"
 
 interface ILayoutProps {
   children: React.ReactElement[]
@@ -22,8 +19,8 @@ const Layout = (props: ILayoutProps) => {
   )
 }
 
-Layout.Header = ({ location, children = null }) => {
-  return children ?? <AppHeader location={location} />
+Layout.Header = ({ children = null }) => {
+  return children ?? <AppHeader />
 }
 
 Layout.Content = ({ children, className = "" }) => {
@@ -40,8 +37,8 @@ Layout.Footer = ({ children = null }) => {
   return children ?? <AppFooter />
 }
 
-Layout.Sidebar = ({ children = null, location }) => {
-  // return children ?? <Nav location={location} />
+Layout.Sidebar = ({ children = null }) => {
+  // return children ?? <Nav  />
   return children ?? null
 }
 

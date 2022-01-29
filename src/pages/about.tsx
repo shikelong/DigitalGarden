@@ -4,8 +4,8 @@ import Layout from "../layouts/Layout"
 const About = ({ data, location }): JSX.Element => {
   return (
     <Layout>
-      <Layout.Header location={location}></Layout.Header>
-      <Layout.Sidebar location={location} />
+      <Layout.Header></Layout.Header>
+      <Layout.Sidebar />
       <Layout.Content>
         <p className="border p-10 my-10 shadow text-xl">
           <h2 className="font-semibold text-3xl mb-8">观测 / 探索 / 表达</h2>

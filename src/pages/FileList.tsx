@@ -15,11 +15,10 @@ interface IFileListProps {
  * @returns
  */
 const FileList = (props: IFileListProps) => {
-  const { data, location } = props
-  console.log(data)
+  const { data } = props
   return (
     <Layout>
-      <Layout.Header location={location}></Layout.Header>
+      <Layout.Header></Layout.Header>
       <Layout.Content>
         <h1>My Site's Markdown Files:</h1>
         <table className="border-green-600 border m-4">
