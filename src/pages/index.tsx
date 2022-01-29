@@ -1,16 +1,17 @@
-import { CalendarIcon } from "@heroicons/react/outline"
 import { graphql } from "gatsby"
-import _ from "lodash"
-import * as React from "react"
-import Tag from "../components/Tag"
+import React, { useEffect } from "react"
+import OceanShowCase from "../components/OceanShowCase"
+import PostCard from "../components/PostCard"
+import { AppHeader } from "../layouts/AppHeader"
 import Layout from "../layouts/Layout"
 import { Post } from "../types"
-import Card from "../components/Card"
-import PostCard from "../components/PostCard"
-import OceanShowCase from "../components/OceanShowCase"
-import { AppHeader } from "../layouts/AppHeader"
+import { autoAsyncStorageToDOM } from "../utils/darkMode"
 
 const Posts = ({ data, location }) => {
+  useEffect(() => {
+    autoAsyncStorageToDOM()
+  }, [])
+
   return (
     <Layout>
       <Layout.Header location={location}>

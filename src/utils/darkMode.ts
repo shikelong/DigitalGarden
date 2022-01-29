@@ -27,7 +27,7 @@ export function isDarkMode(): boolean {
   return Theme.Dark === localStorage.theme
 }
 
-function autoAsyncStorageToDOM() {
+export function autoAsyncStorageToDOM() {
   // On page load or when changing themes, best to add inline in `head` to avoid FOUC
   if (
     localStorage.theme === "dark" ||
@@ -39,5 +39,3 @@ function autoAsyncStorageToDOM() {
     document.documentElement.classList.remove("dark")
   }
 }
-
-autoAsyncStorageToDOM()
