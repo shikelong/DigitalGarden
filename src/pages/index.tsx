@@ -1,10 +1,10 @@
 import { graphql } from "gatsby"
 import React, { useEffect } from "react"
+import { Post } from "types/types"
 import OceanShowCase from "../components/OceanShowCase"
 import PostCard from "../components/PostCard"
 import { AppHeader } from "../layouts/AppHeader"
 import AppLayout from "../layouts/AppLayout"
-import { Post } from "../types"
 import { autoAsyncStorageToDOM } from "../utils/darkMode"
 
 const Posts = ({ data }) => {

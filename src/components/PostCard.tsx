@@ -1,7 +1,7 @@
 import { CalendarIcon } from "@heroicons/react/solid"
 import _ from "lodash"
 import React from "react"
-import { Post } from "types"
+import { Post } from "types/types"
 import Card from "./Card"
 import Tag from "./Tag"
 

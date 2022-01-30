@@ -13,7 +13,8 @@
     "build": "gatsby build",
     "serve": "gatsby serve",
     "clean": "gatsby clean",
-    "format": "prettier --write ."
+    "format": "prettier --write .",
+    "lint": "tsc --noEmit"
   },
   "dependencies": {
     "@emotion/react": "^11.7.1",
