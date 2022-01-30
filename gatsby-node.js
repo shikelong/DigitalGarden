@@ -1,9 +1,9 @@
 const path = require(`path`)
 const _ = require("lodash")
-const { createFilePath } = require(`gatsby-source-filesystem`)
+const {createFilePath} = require(`gatsby-source-filesystem`)
 
-exports.createPages = async ({ graphql, actions, reporter }) => {
-  const { createPage } = actions
+exports.createPages = async ({graphql, actions, reporter}) => {
+  const {createPage} = actions
 
   // Define a template for blog post
   const blogPost = path.resolve(`./src/templates/blog-post.tsx`)
@@ -52,11 +52,11 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
   }
 }
 
-exports.onCreateNode = ({ node, actions, getNode }) => {
-  const { createNodeField } = actions
+exports.onCreateNode = ({node, actions, getNode}) => {
+  const {createNodeField} = actions
 
   if (node.internal.type === `Mdx`) {
-    const value = createFilePath({ node, getNode })
+    const value = createFilePath({node, getNode})
 
     createNodeField({
       name: `slug`,
@@ -66,8 +66,8 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
   }
 }
 
-exports.createSchemaCustomization = ({ actions }) => {
-  const { createTypes } = actions
+exports.createSchemaCustomization = ({actions}) => {
+  const {createTypes} = actions
 
   // Explicitly define the siteMetadata {} object
   // This way those will always be defined even if removed from gatsby-config.js

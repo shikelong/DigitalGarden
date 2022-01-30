@@ -1,6 +1,6 @@
 import React from "react"
-import siteNameImg from "../images/siteName.png"
-import logoImg from "../images/logo.png"
+import siteNameImg from "../assets/images/siteName.png"
+import logoImg from "../assets/images/logo.png"
 import { useSiteMetaData } from "../utils/querys/useSiteMetaData"
 
 const SiteLogo = (): JSX.Element => {

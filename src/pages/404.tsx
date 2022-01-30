@@ -5,7 +5,7 @@ import OceanShowCase from "../components/OceanShowCase"
 import { AppHeader } from "../layouts/AppHeader"
 import { HomeIcon } from "@heroicons/react/outline"
 import Button from "../components/Button"
-import boatUrl from "../images/boat.svg"
+import boatUrl from "../assets/images/boat.svg"
 
 const NotFoundPage = () => {
   return (

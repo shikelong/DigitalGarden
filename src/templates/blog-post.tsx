@@ -1,20 +1,29 @@
-import * as React from "react"
-import { Link, graphql } from "gatsby"
-import { MDXRenderer } from "gatsby-plugin-mdx"
-import AppLayout from "../layouts/AppLayout"
-import MdxBlock from "../components/MdxBlock"
 import {
   ArrowLeftIcon,
   ArrowRightIcon,
   CalendarIcon,
 } from "@heroicons/react/outline"
+import { graphql, Link } from "gatsby"
+import * as React from "react"
 import { Helmet } from "react-helmet"
-import { AppHeader } from "../layouts/AppHeader"
+import MdxBlock from "../components/MdxBlock"
 import ShowCase from "../components/ShowCase"
+import { AppHeader } from "../layouts/AppHeader"
+import AppLayout from "../layouts/AppLayout"
+import { Post } from "../types/types"
 
-const BlogPostTemplate = ({ data }) => {
-  const post = data.mdx
-  const { previous, next } = data
+const BlogPostTemplate = ({
+  data,
+}: {
+  data: {
+    previous: Post
+    next: Post
+    post: Post
+  }
+}) => {
+  const { previous, next, post } = data
+
+  console.log("pre: ", previous)
 
   return (
     <AppLayout>
@@ -77,7 +86,7 @@ const BlogPostTemplate = ({ data }) => {
               className="mt-8"
             >
               <li>
-                {previous && (
+                {previous && !previous.frontmatter.draft && (
                   <Link
                     to={`/${previous.slug}`}
                     rel="prev"
@@ -89,7 +98,7 @@ const BlogPostTemplate = ({ data }) => {
                 )}
               </li>
               <li>
-                {next && (
+                {next && !next.frontmatter.draft && (
                   <Link
                     to={`/${next.slug}`}
                     rel="next"
@@ -122,7 +131,7 @@ export const pageQuery = graphql`
         title
       }
     }
-    mdx(id: { eq: $id }) {
+    post: mdx(id: { eq: $id }) {
       id
       excerpt(pruneLength: 160)
       body
