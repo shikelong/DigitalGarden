@@ -7,7 +7,7 @@ interface ILayoutProps {
   className?: string
 }
 
-const Layout = (props: ILayoutProps) => {
+const AppLayout = (props: ILayoutProps) => {
   const { children, className = "" } = props
 
   return (
@@ -19,11 +19,11 @@ const Layout = (props: ILayoutProps) => {
   )
 }
 
-Layout.Header = ({ children = null }) => {
+AppLayout.Header = ({ children = null }) => {
   return children ?? <AppHeader />
 }
 
-Layout.Content = ({ children, className = "" }) => {
+AppLayout.Content = ({ children, className = "" }) => {
   return (
     <main
       className={`px-3 py-5 lg:px-8 lg:py-10 max-w-4xl container mx-auto flex-grow ${className}`}
@@ -33,13 +33,13 @@ Layout.Content = ({ children, className = "" }) => {
   )
 }
 
-Layout.Footer = ({ children = null }) => {
+AppLayout.Footer = ({ children = null }) => {
   return children ?? <AppFooter />
 }
 
-Layout.Sidebar = ({ children = null }) => {
+AppLayout.Sidebar = ({ children = null }) => {
   // return children ?? <Nav  />
   return children ?? null
 }
 
-export default Layout
+export default AppLayout

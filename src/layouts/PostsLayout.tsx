@@ -8,7 +8,6 @@ interface IPostLayoutProps {
   children: React.ReactElement
 }
 
-//todo: extract components
 const defaultHeader = (
   <header className="container mx-auto px-4 flex items-center justify-between">
     <SiteLogo />
@@ -28,7 +27,6 @@ const defaultFooter = (
 
 const PostLayout = (props: IPostLayoutProps) => {
   const { children } = props
-  //TODO: fix it, use MDXRender for pre tag.
   return (
     <section className=" dark:bg-gray-800 min-h-screen w-screen p-8 dark:text-gray-50 text-black flex flex-col">
       {defaultHeader}

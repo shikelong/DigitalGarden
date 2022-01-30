@@ -1,6 +1,6 @@
 import React from "react"
 import { graphql } from "gatsby"
-import Layout from "../layouts/Layout"
+import AppLayout from "../layouts/AppLayout"
 import Tag from "../components/Tag"
 import _ from "lodash"
 
@@ -17,9 +17,9 @@ interface IFileListProps {
 const FileList = (props: IFileListProps) => {
   const { data } = props
   return (
-    <Layout>
-      <Layout.Header></Layout.Header>
-      <Layout.Content>
+    <AppLayout>
+      <AppLayout.Header></AppLayout.Header>
+      <AppLayout.Content>
         <h1>My Site's Markdown Files:</h1>
         <table className="border-green-600 border m-4">
           <thead>
@@ -62,9 +62,9 @@ const FileList = (props: IFileListProps) => {
             })}
           </tbody>
         </table>
-      </Layout.Content>
-      <Layout.Footer></Layout.Footer>
-    </Layout>
+      </AppLayout.Content>
+      <AppLayout.Footer></AppLayout.Footer>
+    </AppLayout>
   )
 }
 

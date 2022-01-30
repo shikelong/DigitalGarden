@@ -3,7 +3,7 @@ import React, { useEffect } from "react"
 import OceanShowCase from "../components/OceanShowCase"
 import PostCard from "../components/PostCard"
 import { AppHeader } from "../layouts/AppHeader"
-import Layout from "../layouts/Layout"
+import AppLayout from "../layouts/AppLayout"
 import { Post } from "../types"
 import { autoAsyncStorageToDOM } from "../utils/darkMode"
 
@@ -13,22 +13,22 @@ const Posts = ({ data }) => {
   }, [])
 
   return (
-    <Layout>
-      <Layout.Header>
+    <AppLayout>
+      <AppLayout.Header>
         <OceanShowCase>
           <AppHeader />
         </OceanShowCase>
-      </Layout.Header>
-      <Layout.Sidebar />
-      <Layout.Content>
+      </AppLayout.Header>
+      <AppLayout.Sidebar />
+      <AppLayout.Content>
         <ul className="container max-w-4xl mx-auto divide-y bg-gradient-to-t from-blue-500 to-emerald-600">
           {data.allMdx.nodes.map((post: Post, index) => (
             <PostCard key={index} postContent={post} />
           ))}
         </ul>
-      </Layout.Content>
-      <Layout.Footer></Layout.Footer>
-    </Layout>
+      </AppLayout.Content>
+      <AppLayout.Footer></AppLayout.Footer>
+    </AppLayout>
   )
 }
 

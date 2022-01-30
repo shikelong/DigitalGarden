@@ -1,7 +1,7 @@
 import * as React from "react"
 import { Link, graphql } from "gatsby"
 import { MDXRenderer } from "gatsby-plugin-mdx"
-import Layout from "../layouts/Layout"
+import AppLayout from "../layouts/AppLayout"
 import MdxBlock from "../components/MdxBlock"
 import {
   ArrowLeftIcon,
@@ -17,7 +17,7 @@ const BlogPostTemplate = ({ data }) => {
   const { previous, next } = data
 
   return (
-    <Layout>
+    <AppLayout>
       <Helmet>
         <link rel="stylesheet" href="https://unpkg.com/heti/umd/heti.min.css" />
         <script src="//unpkg.com/heti/umd/heti-addon.min.js"></script>
@@ -28,16 +28,16 @@ const BlogPostTemplate = ({ data }) => {
             }`}
         </script>
       </Helmet>
-      <Layout.Header>
+      <AppLayout.Header>
         <ShowCase
           size="small"
           className="bg-gradient-to-b from-white to-slate-500 text-white"
         >
           <AppHeader />
         </ShowCase>
-      </Layout.Header>
-      <Layout.Sidebar></Layout.Sidebar>
-      <Layout.Content className="max-w-5xl">
+      </AppLayout.Header>
+      <AppLayout.Sidebar></AppLayout.Sidebar>
+      <AppLayout.Content className="max-w-5xl">
         <div>
           <article
             className="blog-post"
@@ -103,9 +103,9 @@ const BlogPostTemplate = ({ data }) => {
             </ul>
           </nav>
         </div>
-      </Layout.Content>
-      <Layout.Footer></Layout.Footer>
-    </Layout>
+      </AppLayout.Content>
+      <AppLayout.Footer></AppLayout.Footer>
+    </AppLayout>
   )
 }
 
