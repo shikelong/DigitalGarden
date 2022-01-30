@@ -3,7 +3,7 @@ import { AppFooter } from "./AppFooter"
 import { AppHeader } from "./AppHeader"
 
 interface ILayoutProps {
-  children: React.ReactElement[]
+  children: React.ReactElement[] | React.ReactElement
   className?: string
 }
 

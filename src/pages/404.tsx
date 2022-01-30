@@ -1,54 +1,34 @@
-import * as React from "react";
-import { Link } from "gatsby";
+import * as React from "react"
+import { Link } from "gatsby"
+import AppLayout from "../layouts/AppLayout"
+import OceanShowCase from "../components/OceanShowCase"
+import { AppHeader } from "../layouts/AppHeader"
+import { HomeIcon } from "@heroicons/react/outline"
+import Button from "../components/Button"
+import boatUrl from "../images/boat.svg"
 
-// styles
-const pageStyles = {
-  color: "#232129",
-  padding: "96px",
-  fontFamily: "-apple-system, Roboto, sans-serif, serif",
-};
-const headingStyles = {
-  marginTop: 0,
-  marginBottom: 64,
-  maxWidth: 320,
-};
-
-const paragraphStyles = {
-  marginBottom: 48,
-};
-const codeStyles = {
-  color: "#8A6534",
-  padding: 4,
-  backgroundColor: "#FFF4DB",
-  fontSize: "1.25rem",
-  borderRadius: 4,
-};
-
-// markup
 const NotFoundPage = () => {
   return (
-    <main style={pageStyles}>
-      <title>Not found</title>
-      <h1 style={headingStyles}>Page not found</h1>
-      <p style={paragraphStyles}>
-        Sorry{" "}
-        <span role="img" aria-label="Pensive emoji">
-          😔
-        </span>{" "}
-        we couldn’t find what you were looking for.
-        <br />
-        {process.env.NODE_ENV === "development" ? (
-          <>
-            <br />
-            Try creating a page in <code style={codeStyles}>src/pages/</code>.
-            <br />
-          </>
-        ) : null}
-        <br />
-        <Link to="/">Go home</Link>.
-      </p>
-    </main>
-  );
-};
+    <AppLayout>
+      <AppLayout.Header>
+        <OceanShowCase size="full">
+          <div className="h-full">
+            <AppHeader />
+            <div className="p-20 flex flex-col h-3/4 items-center justify-around">
+              <h2 className="text-4xl font-serif">404 Not Found</h2>
+              <img src={boatUrl} className="w-96"></img>
+              <Button
+                type="light"
+                icon={<HomeIcon className="w-4 h-4"></HomeIcon>}
+              >
+                <Link to="/">Go home</Link>
+              </Button>
+            </div>
+          </div>
+        </OceanShowCase>
+      </AppLayout.Header>
+    </AppLayout>
+  )
+}
 
-export default NotFoundPage;
+export default NotFoundPage

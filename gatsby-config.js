@@ -3,6 +3,7 @@ module.exports = {
     title: "孤筏重洋",
   },
   plugins: [
+    'gatsby-plugin-svgr',
     "gatsby-plugin-image",
     {
       resolve: "gatsby-plugin-google-analytics",
@@ -11,7 +12,6 @@ module.exports = {
       },
     },
     "gatsby-plugin-react-helmet",
-    // "gatsby-plugin-sitemap",
     {
       resolve: "gatsby-plugin-manifest",
       options: {

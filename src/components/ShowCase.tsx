@@ -4,16 +4,16 @@ import React from "react"
 const HeightMaps = {
   small: "30vh",
   medium: "60vh",
-  large: "100vh",
+  full: "100vh",
 }
 
-const ShowCase = (
-  props: React.PropsWithChildren<{
-    style?: React.CSSProperties
-    className?: string
-    size?: "small" | "medium" | "large"
-  }>
-): JSX.Element => {
+export type ShowCaseProps = React.PropsWithChildren<{
+  style?: React.CSSProperties
+  className?: string
+  size?: "small" | "medium" | "full"
+}>
+
+const ShowCase = (props: ShowCaseProps): JSX.Element => {
   const { style = {}, className = "", size = "medium" } = props
 
   return (
