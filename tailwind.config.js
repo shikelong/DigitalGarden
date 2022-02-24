@@ -9,6 +9,7 @@ module.exports = {
   darkMode: 'class',
   important: true,
   plugins: [
-    "gatsby-plugin-postcss"
+    "gatsby-plugin-postcss",
+    require("daisyui")
   ],
 }
