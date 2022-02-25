@@ -19,7 +19,7 @@ export const MyParagraph = (props) => (
 )
 export const MyBlockQuote = (props) => (
   <blockquote
-    className="border-l-4 border-green-500 bg-green-100 pl-2"
+    className="border-l-4 border-yellow-500 bg-yellow-200 pl-2"
     {...props}
   ></blockquote>
 )
@@ -76,7 +76,7 @@ const components = {
 const MdxBlock = (props: IMdxBlockProps) => {
   return (
     <MDXProvider components={components}>
-      <div className="markdownContainer pt-5 heti heti--classic">
+      <div className="px-4 py-5 mx-auto heti heti--classic">
         <MDXRenderer>{props.content}</MDXRenderer>
       </div>
     </MDXProvider>

@@ -1,0 +1,111 @@
+---
+id: "97c9d3b0-2173-4fbc-917a-b146ee0ff4b9"
+title: "React Glossary"
+slug: "react-glossary"
+date: "2022-02-25"
+draft: false
+category: "react"
+description: ""
+pinned: true
+tags:
+  - "react"
+  - "en-US"
+---
+
+import BookMark from "../components/BookMark"
+
+The [React official glossary](https://reactjs.org/docs/glossary.html) is too simple. so I made this one.
+I will explain the meaning of each term in my word.
+
+## React Basic
+
+- JSX: It's a **syntax extension to JavaScript**, which is used to write template inside JavaScript code.
+  - JSX will be compiled to function calls of `React.createElement()`. And this function call will return a plain JavaScript object named **React Element**.
+- React Element: an element is a plain object describing a component instance or DOM node and its desired properties.
+  - Element is not instance of Component. It's just plain object.
+- Components: components can be _function_ or _class_. It let you split your code into reusable and independent pieces.
+  - Function Components return a react element.
+  - Class Components's render function return a react element.
+- Component Instance: only class components have instances. An Instance is what your refer to as `this` in the class component you write. It is useful for storing local state and reacting to the lifecycle events.
+
+<BookMark
+  link="https://reactjs.org/blog/2015/12/18/react-components-elements-and-instances.html"
+  title="More Info: react-components-elements-and-instances"
+></BookMark>
+
+- Hooks: hooks are function let your use `state` and other React features without writing a class.
+- Props: props are input to a React Component, props are readonly. It can be passed down from parent to child in component tree.
+- State: different from props, state hold by component itself and can be changed by component. different components have it own state, if you want share
+  state between components, you can [lift it up](https://reactjs.org/docs/lifting-state-up.html) to their closet shared ancestor, and pass it down as props to both of them.
+- Life Cycle methods：class components have lifecycle methods, which are called by React when the component is being rendered, updated, or unmounted.
+  <BookMark
+    src="https://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/"
+    title="react-lifecycle-methods-diagram"
+  />
+- Refs：React support a special attribute that let you attach to any component. refs allow you access to DOM element or component instance.
+  - classification of ref: legacy refs/ string ref(should not use), callback refs, useRef/createRef
+    - Ref an Function Component: because function component has no instance, you can use `forwardRef` and `useImperativeHandle` to get function component's refs.
+- Context: context provides a way to pass data through the component tree without having to pass props down manually at every level.
+  - Context can help fix `Prop drilling` problem.
+- Fragments: fragments let you group a list of children without adding extra nodes to the DOM.
+  - Fragment is also a special type of React Element.
+
+## About React Implementation
+
+- Synthetic Event: SyntheticEvent is a cross-browser wrapper around the native events, it has the same interface as the native events.
+  - event handler like `onClick` default triggered on bubble phase. if you want to trigger on capture phase, you can use `onClickCapture` prop to bind event listener.
+  - Event Proxy Behavior:
+    - Before v17, React add event listener to the `document` DOM node actually.
+    - After v17, React add event listener to the container node of the Root React component.
+- Event Pooling: before v17, SyntheticEvent object are pooled, the event object will be reused and all properties will be reset after event handler has been called.
+
+  ```javascript
+  function handleChange(e) {
+    // This won't work because the event object gets reused.
+    setTimeout(() => {
+      console.log(e.target.value) // Too late!
+    }, 100)
+  }
+
+  // you can persist event object.
+  function handleChange(e) {
+    // Prevents React from resetting its properties:
+    e.persist()
+
+    setTimeout(() => {
+      console.log(e.target.value) // Works
+    }, 100)
+  }
+  ```
+
+  - As of v17, SyntheticEvent is no longer pooled. so e.persist() do nothing.
+
+- Renderer: Renderers manage how a React Component tree turns into the underlying platform calls. React Core Package only include top-level APIs like `React.createElement`. It does not include `Reconciliation` algorithm or any platform-specific code.
+  Different platforms has different renderer.
+  - Browser: ReactDOM render react components to the DOM.
+  - Test Env: React Test Renderer renders React Components to JSON trees. It is used by Snapshot Testing.
+  - Native: ReactNative render render components to native views.
+- Reconciliation: Reconciliation is the process or algorithm that React uses to diff one tree with another to determine which parts need to be changed and apply the minimal
+  set of changes necessary to update the DOM nodes(or other platform-specific views like native views)
+- Reconciler: Reconcilers are responsible for the reconciliation process. There are two types of reconcilers:
+  - Stack Reconciler: before v16, it is the implementation of Reconciliation.
+  - Fiber Reconciler: implementation after v16.
+- Fiber:
+- Virtual DOM:
+- Scheduler: Scheduler package responsible for control callback function's execution time, it used in browser environment.
+  - Scheduler use `minHeap` data structure to maintain a taskQueues internally.
+- Concurrent Mode:
+- Legacy Mode:
+- Blocking Mode:
+- React Lane:
+
+## Others
+
+- RenderProps
+- Higher-Order Components (HOC)
+- Suspense
+- Compound Components
+- Controlled Components
+- UnControlled Components
+- Container Components / Presentational Components
+- Prop Drilling

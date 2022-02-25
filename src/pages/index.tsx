@@ -21,7 +21,7 @@ const Posts = ({ data }) => {
       </AppLayout.Header>
       <AppLayout.Sidebar />
       <AppLayout.Content>
-        <ul className="container max-w-4xl mx-auto divide-y bg-gradient-to-t from-blue-500 to-emerald-600">
+        <ul className="container max-w-4xl mx-auto divide-y">
           {data.allMdx.nodes.map((post: Post, index) => (
             <PostCard key={index} postContent={post} />
           ))}
