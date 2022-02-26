@@ -7,9 +7,14 @@ interface IMdxBlockProps {
   content: any
 }
 
-export const MyH1 = (props) => <h1 className="text-4xl mt-4" {...props}></h1>
-export const MyH2 = (props) => <h2 className="text-3xl mt-4" {...props}></h2>
-export const MyH3 = (props) => <h3 className="text-2xl mt-3" {...props}></h3>
+export const MyH1 = (props) => <h1 className="text-4xl mt-12" {...props}></h1>
+export const MyH2 = (props) => (
+  <h2
+    className="text-3xl mt-12 border-l-4 pl-4 border-blue-500 pt-1 pb-2 dark:border-pink-400"
+    {...props}
+  ></h2>
+)
+export const MyH3 = (props) => <h3 className="text-2xl mt-8" {...props}></h3>
 export const MyH4 = (props) => <h4 className="text-xl mt-2" {...props}></h4>
 export const MyH5 = (props) => <h5 className="text-xl mt-2" {...props}></h5>
 export const MyH6 = (props) => <h6 className="text-xl mt-2" {...props}></h6>
@@ -35,7 +40,10 @@ export const MyTable = (props) => (
 )
 export const MyTableRow = (props) => <tr className="border" {...props}></tr>
 export const MyInlineCode = (props) => (
-  <code className="bg-slate-300 py-1 px-1.5" {...props}></code>
+  <code
+    className="bg-slate-300 dark:bg-slate-500 py-1 px-2 mr-0.5"
+    {...props}
+  ></code>
 )
 export const MyBreak = (props) => <hr className="m-4" {...props}></hr>
 export const MyLink = (props) => <a className="underline" {...props}></a>

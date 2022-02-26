@@ -13,51 +13,49 @@ tags:
 ---
 
 import BookMark from "../components/BookMark"
+import Glossary from "../components/Glossary"
 
 The [React official glossary](https://reactjs.org/docs/glossary.html) is too simple. so I made this one.
 I will explain the meaning of each term in my word.
 
 ## React Basic
 
-- JSX: It's a **syntax extension to JavaScript**, which is used to write template inside JavaScript code.
+- `JSX`: It's a **syntax extension to JavaScript**, which is used to write template inside JavaScript code.
   - JSX will be compiled to function calls of `React.createElement()`. And this function call will return a plain JavaScript object named **React Element**.
-- React Element: an element is a plain object describing a component instance or DOM node and its desired properties.
+- `React Element`: an element is a plain object describing a component instance or DOM node and its desired properties.
   - Element is not instance of Component. It's just plain object.
-- Components: components can be _function_ or _class_. It let you split your code into reusable and independent pieces.
+- `Components`: components can be _function_ or _class_. It let you split your code into reusable and independent pieces.
   - Function Components return a react element.
   - Class Components's render function return a react element.
-- Component Instance: only class components have instances. An Instance is what your refer to as `this` in the class component you write. It is useful for storing local state and reacting to the lifecycle events.
+- `Component Instance`: only class components have instances. An Instance is what your refer to as `this` in the class component you write. It is useful for storing local state and reacting to the lifecycle events.
 
-<BookMark
-  link="https://reactjs.org/blog/2015/12/18/react-components-elements-and-instances.html"
-  title="More Info: react-components-elements-and-instances"
-></BookMark>
+<BookMark link="https://reactjs.org/blog/2015/12/18/react-components-elements-and-instances.html"></BookMark>
 
-- Hooks: hooks are function let your use `state` and other React features without writing a class.
-- Props: props are input to a React Component, props are readonly. It can be passed down from parent to child in component tree.
-- State: different from props, state hold by component itself and can be changed by component. different components have it own state, if you want share
+- `Hooks`: hooks are function let your use `state` and other React features without writing a class.
+- `Props`: props are input to a React Component, props are readonly. It can be passed down from parent to child in component tree.
+- `State`: different from props, state hold by component itself and can be changed by component. different components have it own state, if you want share
   state between components, you can [lift it up](https://reactjs.org/docs/lifting-state-up.html) to their closet shared ancestor, and pass it down as props to both of them.
-- Life Cycle methods：class components have lifecycle methods, which are called by React when the component is being rendered, updated, or unmounted.
+- `Life Cycle methods`：class components have lifecycle methods, which are called by React when the component is being rendered, updated, or unmounted.
   <BookMark
     src="https://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/"
     title="react-lifecycle-methods-diagram"
   />
-- Refs：React support a special attribute that let you attach to any component. refs allow you access to DOM element or component instance.
+- `Refs`：React support a special attribute that let you attach to any component. refs allow you access to DOM element or component instance.
   - classification of ref: legacy refs/ string ref(should not use), callback refs, useRef/createRef
     - Ref an Function Component: because function component has no instance, you can use `forwardRef` and `useImperativeHandle` to get function component's refs.
-- Context: context provides a way to pass data through the component tree without having to pass props down manually at every level.
+- `Context`: context provides a way to pass data through the component tree without having to pass props down manually at every level.
   - Context can help fix `Prop drilling` problem.
-- Fragments: fragments let you group a list of children without adding extra nodes to the DOM.
+- `Fragments`: fragments let you group a list of children without adding extra nodes to the DOM.
   - Fragment is also a special type of React Element.
 
 ## About React Implementation
 
-- Synthetic Event: SyntheticEvent is a cross-browser wrapper around the native events, it has the same interface as the native events.
+- `Synthetic Event`: SyntheticEvent is a cross-browser wrapper around the native events, it has the same interface as the native events.
   - event handler like `onClick` default triggered on bubble phase. if you want to trigger on capture phase, you can use `onClickCapture` prop to bind event listener.
   - Event Proxy Behavior:
     - Before v17, React add event listener to the `document` DOM node actually.
     - After v17, React add event listener to the container node of the Root React component.
-- Event Pooling: before v17, SyntheticEvent object are pooled, the event object will be reused and all properties will be reset after event handler has been called.
+- `Event Pooling`: before v17, SyntheticEvent object are pooled, the event object will be reused and all properties will be reset after event handler has been called.
 
   ```javascript
   function handleChange(e) {
@@ -80,33 +78,30 @@ I will explain the meaning of each term in my word.
 
   - As of v17, SyntheticEvent is no longer pooled. so e.persist() do nothing.
 
-- Renderer: Renderers manage how a React Component tree turns into the underlying platform calls. React Core Package only include top-level APIs like `React.createElement`. It does not include `Reconciliation` algorithm or any platform-specific code.
+- `Renderer`: Renderers manage how a React Component tree turns into the underlying platform calls. React Core Package only include top-level APIs like `React.createElement`. It does not include `Reconciliation` algorithm or any platform-specific code.
   Different platforms has different renderer.
   - Browser: ReactDOM render react components to the DOM.
   - Test Env: React Test Renderer renders React Components to JSON trees. It is used by Snapshot Testing.
   - Native: ReactNative render render components to native views.
-- Reconciliation: Reconciliation is the process or algorithm that React uses to diff one tree with another to determine which parts need to be changed and apply the minimal
+- `Reconciliation`: Reconciliation is the process or algorithm that React uses to diff one tree with another to determine which parts need to be changed and apply the minimal
   set of changes necessary to update the DOM nodes(or other platform-specific views like native views)
-- Reconciler: Reconcilers are responsible for the reconciliation process. There are two types of reconcilers:
+- `Reconciler`: Reconcilers are responsible for the reconciliation process. There are two types of reconcilers:
   - Stack Reconciler: before v16, it is the implementation of Reconciliation.
   - Fiber Reconciler: implementation after v16.
-- Fiber: this term has many means —— It's React v16's new Reconciliation algorithm/engine (Fiber Reconciler); It's a kind of internal objects to hold additional information about the component tree.
-  <BookMark
-    link="https://www.velotio.com/engineering-blog/react-fiber-algorithm"
-    title="React Fiber Algorithm"
-  />
-- Virtual DOM: it's a vague concept, it is representation of a UI is kept in memory and synced with the "real" DOM. The synced process is called `Reconciliation`
+- `Fiber`: this term has many means —— It's React v16's new Reconciliation algorithm/engine (Fiber Reconciler); It's a kind of internal objects to hold additional information about the component tree.
+  <BookMark link="https://www.velotio.com/engineering-blog/react-fiber-algorithm" />
+- `Virtual DOM`: it's a vague concept, it is representation of a UI is kept in memory and synced with the "real" DOM. The synced process is called `Reconciliation`
   - you can think **Fiber** is a part of implementation of Virtual DOM.
   - It is more of a pattern than a specific technology.
-- Scheduler: Scheduler package responsible for control callback function's execution time, it used in browser environment.
+- `Scheduler`: Scheduler package responsible for control callback function's execution time, it used in browser environment.
   - Scheduler use `minHeap` data structure to maintain a taskQueues internally.
-- Concurrent Mode: in this mode, a set of new features that help React apps stay responsive and can adjust to the user's device capabilities and network speed.
+- `Concurrent Mode`: in this mode, a set of new features that help React apps stay responsive and can adjust to the user's device capabilities and network speed.
   - In concurrent Mode, Rendering can be **interrupted** and **resumed**. It deferent with the `legacy mode` —— only support `blocking rendering`.
   - Interruptible rendering improves the user experience.
   - entry method: `ReactDOM.createRoot(rootNode).render(<App/>)`
-- Legacy Mode: React current render mode. (<= v16). it use blocking rendering.
+- `Legacy Mode`: React current render mode. (<= v16). it use blocking rendering.
   - entry method: `ReactDOM.render(<App/>, rootNode)`
-- Blocking Mode: it offer a small part of Concurrent mode features. it is a migration step.
+- `Blocking Mode`: it offer a small part of Concurrent mode features. it is a migration step.
 
   - entry method: `ReactDOM.createBlockingRoot(rootNode).render(<App/>)`
     {" "}
@@ -115,7 +110,7 @@ I will explain the meaning of each term in my word.
 
   <img src="https://i.imgur.com/Z5P9JQV.png" />
 
-- React Lane: is a 32-bit representation of a task at reconcile time. React use Lanes to express the priority of updates/render.
+- `React Lane`: is a 32-bit representation of a task at reconcile time. React use Lanes to express the priority of updates/render.
 
   ```typescript
   // https://github.com/facebook/react/blob/9212d994ba939f20a04220a61e9776b488381596/packages/react-reconciler/src/ReactFiberLane.new.js
@@ -133,71 +128,97 @@ I will explain the meaning of each term in my word.
     link="https://dev.to/okmttdhr/what-is-lane-in-react-4np7"
     title="what-is-lane-in-react"
   />
-  ```
+
+- `Suspense`: React 16.6 added a **Suspense** component that lets you “wait” for some code to load and declaratively specify a loading state (like a spinner) while we’re waiting.
 
 ## Others
 
-- RenderProp: a technique for sharing code between Components using a prop whose value is a function. A component with a render prop takes a function that
+- `RenderProp`: a technique for sharing code between Components using a prop whose value is a function. A component with a render prop takes a function that
   returns a React Element and call its instead of implementing its own render logic.
 
   - Pros:
+
     - Concern point Separation —— Split render logic(UI) and bushiness logic.
     - It can be used for bushiness logic reusing.
-  - examples:
 
-    ```jsx
-    class FetchUsers extends React.Component {
-      constructor(props) {
-        super(props)
+  ```jsx
+  class FetchUsers extends React.Component {
+    constructor(props) {
+      super(props)
 
-        this.state = {
-          loading: false,
-          users: null,
-          error: null,
-        }
+      this.state = {
+        loading: false,
+        users: null,
+        error: null,
       }
-      componentDidMount() {
-        this.setState({ loading: true }, () => {
-          fetch("https://jsonplaceholder.typicode.com/users")
-            .then((response) => response.json())
-            .then((users) => this.setState({ users, loading: false }))
-            .catch((error) => this.setState({ error, loading: false }))
-        })
-      }
+    }
+    componentDidMount() {
+      this.setState({ loading: true }, () => {
+        fetch("https://jsonplaceholder.typicode.com/users")
+          .then((response) => response.json())
+          .then((users) => this.setState({ users, loading: false }))
+          .catch((error) => this.setState({ error, loading: false }))
+      })
+    }
+    render() {
+      const { loading, users, error } = this.state
+
+      return this.props.children({ loading, users, error })
+    }
+  }
+
+  function App() {
+    return (
+      <FetchUsers>
+        {({ loading, users, error }) => {
+          if (loading) return <p>Loading</p>
+          if (error) return <p>Ops, sorry. No data loaded.</p>
+          if (users) return users.map(({ name }) => <p>{name}</p>)
+          return null
+        }}
+      </FetchUsers>
+    )
+  }
+  ```
+
+  ```jsx
+  <Authorize
+    permissionsInclude={["read:products"]}
+    render={() => <ProductsList />}
+  />
+  ```
+
+- `Higher-Order Components (HOC)`: a higher-order component is a function that takes a component and returns a new component.
+
+  > Whereas a component transforms props into UI, a higher-order component transforms a component into another component.
+
+  ```javascript
+  function withHover(Component, propName = "hovering") {
+    return class WithHover extends React.Component {
+      state = { hovering: false }
+      mouseOver = () => this.setState({ hovering: true })
+      mouseOut = () => this.setState({ hovering: false })
       render() {
-        const { loading, users, error } = this.state
+        console.log(this.props) // { height: "16px" }
 
-        return this.props.children({ loading, users, error })
+        const props = {
+          [propName]: this.state.hovering,
+        }
+
+        return (
+          <div onMouseOver={this.mouseOver} onMouseOut={this.mouseOut}>
+            <Component {...props} />
+          </div>
+        )
       }
     }
+  }
+  ```
 
-    function App() {
-      return (
-        <FetchUsers>
-          {({ loading, users, error }) => {
-            if (loading) return <p>Loading</p>
-            if (error) return <p>Ops, sorry. No data loaded.</p>
-            if (users) return users.map(({ name }) => <p>{name}</p>)
-            return null
-          }}
-        </FetchUsers>
-      )
-    }
-    ```
+  - _React-Redux_'s [connect method](https://github.com/reduxjs/react-redux/blob/master/src/components/connect.tsx) is a HOC.
 
-- example2:
-
-```jsx
-<Authorize
-  permissionsInclude={["read:products"]}
-  render={() => <ProductsList />}
-/>
-```
-
-- Higher-Order Components (HOC)
-- Suspense
-- Compound Components
-- Controlled Components
-- UnControlled Components
-- Container Components / Presentational Components
-- Prop Drilling: In the component tree, the high-level component has to pass props down level by level, but it does not need to use these props itself.
+- `Compound Components`: this pattern encloses the state and the behavior of a group of components but still gives the rendering control of its variable parts back to the external user.
+  - this pattern/technology help developers build more expressive and flexible APIs to share state and logic within components.
+  - this pattern can avoid `Prop Drilling`
+    <BookMark link="https://kentcdodds.com/blog/compound-components-with-react-hooks" />
+- `Prop Drilling`: In the component tree, the high-level component has to pass props down level by level, but it does not need to use these props itself.
