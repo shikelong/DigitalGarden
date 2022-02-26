@@ -4,6 +4,8 @@ const isBrowser = typeof window !== "undefined"
 
 const DarkClassName = "dark"
 
+export const THEME_CHANGE_EVENT = "theme-change"
+
 export enum Theme {
   Light = "light",
   Dark = "dark",
@@ -12,6 +14,7 @@ export enum Theme {
 export function toggleDarkMode(newTheme: Theme) {
   localStorage.theme = newTheme
   autoAsyncStorageToDOM()
+  window.dispatchEvent(new CustomEvent(THEME_CHANGE_EVENT))
 }
 
 export function removeUserPrefer() {

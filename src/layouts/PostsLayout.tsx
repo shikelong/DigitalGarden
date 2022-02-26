@@ -28,7 +28,7 @@ const defaultFooter = (
 const PostLayout = (props: IPostLayoutProps) => {
   const { children } = props
   return (
-    <section className=" dark:bg-gray-800 min-h-screen w-screen p-8 dark:text-gray-50 text-black flex flex-col">
+    <section className="dark:bg-gray-800 min-h-screen w-screen p-8 dark:text-gray-50 text-black flex flex-col">
       {defaultHeader}
       <MdxBlock content={children}></MdxBlock>
       {defaultFooter}

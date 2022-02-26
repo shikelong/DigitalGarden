@@ -19,7 +19,7 @@ export const MyParagraph = (props) => (
 )
 export const MyBlockQuote = (props) => (
   <blockquote
-    className="border-l-4 border-yellow-500 bg-yellow-200 pl-2"
+    className="border-l-4 border-yellow-500 bg-[#f5eddd] dark:bg-purple-100 dark:border-purple-500 rounded px-2 py-2 dark:text-black"
     {...props}
   ></blockquote>
 )
@@ -35,13 +35,16 @@ export const MyTable = (props) => (
 )
 export const MyTableRow = (props) => <tr className="border" {...props}></tr>
 export const MyInlineCode = (props) => (
-  <code className="bg-red-300" {...props}></code>
+  <code className="bg-slate-300 py-1 px-1.5" {...props}></code>
 )
 export const MyBreak = (props) => <hr className="m-4" {...props}></hr>
 export const MyLink = (props) => <a className="underline" {...props}></a>
 export const MyEmphasis = (props) => <em className="" {...props}></em>
 export const MyStrong = (props) => (
-  <strong className="bg-yellow-500 bg-opacity-50 p-1" {...props}></strong>
+  <strong
+    className="font-bold text-blue-800 dark:text-red-300"
+    {...props}
+  ></strong>
 )
 export const MyTableCell = (props) => (
   <td className="p-3 border" {...props}></td>
@@ -76,7 +79,7 @@ const components = {
 const MdxBlock = (props: IMdxBlockProps) => {
   return (
     <MDXProvider components={components}>
-      <div className="px-4 py-5 mx-auto heti heti--classic">
+      <div className="px-4 py-5 mx-auto">
         <MDXRenderer>{props.content}</MDXRenderer>
       </div>
     </MDXProvider>

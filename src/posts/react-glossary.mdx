@@ -90,22 +90,114 @@ I will explain the meaning of each term in my word.
 - Reconciler: Reconcilers are responsible for the reconciliation process. There are two types of reconcilers:
   - Stack Reconciler: before v16, it is the implementation of Reconciliation.
   - Fiber Reconciler: implementation after v16.
-- Fiber:
-- Virtual DOM:
+- Fiber: this term has many means —— It's React v16's new Reconciliation algorithm/engine (Fiber Reconciler); It's a kind of internal objects to hold additional information about the component tree.
+  <BookMark
+    link="https://www.velotio.com/engineering-blog/react-fiber-algorithm"
+    title="React Fiber Algorithm"
+  />
+- Virtual DOM: it's a vague concept, it is representation of a UI is kept in memory and synced with the "real" DOM. The synced process is called `Reconciliation`
+  - you can think **Fiber** is a part of implementation of Virtual DOM.
+  - It is more of a pattern than a specific technology.
 - Scheduler: Scheduler package responsible for control callback function's execution time, it used in browser environment.
   - Scheduler use `minHeap` data structure to maintain a taskQueues internally.
-- Concurrent Mode:
-- Legacy Mode:
-- Blocking Mode:
-- React Lane:
+- Concurrent Mode: in this mode, a set of new features that help React apps stay responsive and can adjust to the user's device capabilities and network speed.
+  - In concurrent Mode, Rendering can be **interrupted** and **resumed**. It deferent with the `legacy mode` —— only support `blocking rendering`.
+  - Interruptible rendering improves the user experience.
+  - entry method: `ReactDOM.createRoot(rootNode).render(<App/>)`
+- Legacy Mode: React current render mode. (<= v16). it use blocking rendering.
+  - entry method: `ReactDOM.render(<App/>, rootNode)`
+- Blocking Mode: it offer a small part of Concurrent mode features. it is a migration step.
+
+  - entry method: `ReactDOM.createBlockingRoot(rootNode).render(<App/>)`
+    {" "}
+
+  ### Comparison of different mode:
+
+  <img src="https://i.imgur.com/Z5P9JQV.png" />
+
+- React Lane: is a 32-bit representation of a task at reconcile time. React use Lanes to express the priority of updates/render.
+
+  ```typescript
+  // https://github.com/facebook/react/blob/9212d994ba939f20a04220a61e9776b488381596/packages/react-reconciler/src/ReactFiberLane.new.js
+  const NoLane: Lane = 0b0000000000000000000000000000000
+  const SyncLane: Lane = 0b0000000000000000000000000000001
+  const TransitionLanes: Lanes = 0b0000000001111111111111111000000
+  const IdleLane: Lanes = 0b0100000000000000000000000000000
+  const OffscreenLane: Lane = 0b1000000000000000000000000000000
+  ```
+
+  - it used inside React, many of `Concurrent mode` features are based on the Lane.
+  - fiber nodes/objects have a property called lanes.
+
+  <BookMark
+    link="https://dev.to/okmttdhr/what-is-lane-in-react-4np7"
+    title="what-is-lane-in-react"
+  />
+  ```
 
 ## Others
 
-- RenderProps
+- RenderProp: a technique for sharing code between Components using a prop whose value is a function. A component with a render prop takes a function that
+  returns a React Element and call its instead of implementing its own render logic.
+
+  - Pros:
+    - Concern point Separation —— Split render logic(UI) and bushiness logic.
+    - It can be used for bushiness logic reusing.
+  - examples:
+
+    ```jsx
+    class FetchUsers extends React.Component {
+      constructor(props) {
+        super(props)
+
+        this.state = {
+          loading: false,
+          users: null,
+          error: null,
+        }
+      }
+      componentDidMount() {
+        this.setState({ loading: true }, () => {
+          fetch("https://jsonplaceholder.typicode.com/users")
+            .then((response) => response.json())
+            .then((users) => this.setState({ users, loading: false }))
+            .catch((error) => this.setState({ error, loading: false }))
+        })
+      }
+      render() {
+        const { loading, users, error } = this.state
+
+        return this.props.children({ loading, users, error })
+      }
+    }
+
+    function App() {
+      return (
+        <FetchUsers>
+          {({ loading, users, error }) => {
+            if (loading) return <p>Loading</p>
+            if (error) return <p>Ops, sorry. No data loaded.</p>
+            if (users) return users.map(({ name }) => <p>{name}</p>)
+            return null
+          }}
+        </FetchUsers>
+      )
+    }
+    ```
+
+- example2:
+
+```jsx
+<Authorize
+  permissionsInclude={["read:products"]}
+  render={() => <ProductsList />}
+/>
+```
+
 - Higher-Order Components (HOC)
 - Suspense
 - Compound Components
 - Controlled Components
 - UnControlled Components
 - Container Components / Presentational Components
-- Prop Drilling
+- Prop Drilling: In the component tree, the high-level component has to pass props down level by level, but it does not need to use these props itself.

@@ -7,9 +7,11 @@ module.exports = {
     extend: {},
   },
   darkMode: 'class',
+  // darkMode: 'media',
   important: true,
   plugins: [
     "gatsby-plugin-postcss",
+    require("@tailwindcss/typography"),
     require("daisyui")
   ],
 }

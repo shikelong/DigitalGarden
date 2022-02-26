@@ -5,7 +5,6 @@ import {
 } from "@heroicons/react/outline"
 import { graphql, Link } from "gatsby"
 import * as React from "react"
-import { Helmet } from "react-helmet"
 import MdxBlock from "../components/MdxBlock"
 import ShowCase from "../components/ShowCase"
 import { AppHeader } from "../layouts/AppHeader"
@@ -23,20 +22,8 @@ const BlogPostTemplate = ({
 }) => {
   const { previous, next, post } = data
 
-  console.log("pre: ", previous)
-
   return (
     <AppLayout>
-      <Helmet>
-        <link rel="stylesheet" href="https://unpkg.com/heti/umd/heti.min.css" />
-        <script src="//unpkg.com/heti/umd/heti-addon.min.js"></script>
-        <script>
-          {`window.onload = function() {
-              var heti = new Heti('.heti');
-              heti.autoSpacing();
-            }`}
-        </script>
-      </Helmet>
       <AppLayout.Header>
         <ShowCase
           size="small"
@@ -49,7 +36,7 @@ const BlogPostTemplate = ({
       <AppLayout.Content className="max-w-5xl">
         <div>
           <article
-            className="blog-post"
+            className="blog-post prose dark:prose-invert max-w-none"
             itemScope
             itemType="http://schema.org/Article"
           >
