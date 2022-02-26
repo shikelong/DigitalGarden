@@ -1,9 +1,10 @@
 {
   "compilerOptions": {
-    // "baseUrl": "./src/",
+    "rootDir": "src",
     "jsx": "react",
     "esModuleInterop": true,
     "skipLibCheck": true,
+    "lib": ["ESNext", "DOM"],
     "types": []
   },
   "exclude": [
