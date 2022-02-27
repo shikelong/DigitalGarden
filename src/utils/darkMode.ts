@@ -1,5 +1,3 @@
-import { useEffect } from "react"
-
 const isBrowser = typeof window !== "undefined"
 
 const DarkClassName = "dark"
@@ -24,10 +22,13 @@ export function removeUserPrefer() {
 export function isDarkMode(): boolean {
   if (isBrowser) {
     const html = document.getElementsByTagName("html")[0]
-    return html.classList.contains(DarkClassName)
+    return (
+      html.classList.contains(DarkClassName) ??
+      Theme.Dark === localStorage.theme
+    )
   }
 
-  return Theme.Dark === localStorage.theme
+  return false
 }
 
 export function autoAsyncStorageToDOM() {
