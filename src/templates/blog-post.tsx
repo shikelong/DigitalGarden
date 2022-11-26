@@ -10,6 +10,7 @@ import ShowCase from "../components/ShowCase"
 import { AppHeader } from "../layouts/AppHeader"
 import AppLayout from "../layouts/AppLayout"
 import { Post } from "../types/types"
+import { Helmet } from "react-helmet"
 
 const BlogPostTemplate = ({
   data,
@@ -24,13 +25,15 @@ const BlogPostTemplate = ({
 
   return (
     <AppLayout>
+      <Helmet>
+        <link
+          rel="stylesheet"
+          media="all"
+          href="//cdnjs.cloudflare.com/ajax/libs/Han/3.3.0/han.min.css"
+        />
+      </Helmet>
       <AppLayout.Header>
-        <ShowCase
-          size="small"
-          className="bg-gradient-to-b from-white to-slate-500 text-white"
-        >
-          <AppHeader />
-        </ShowCase>
+        <AppHeader />
       </AppLayout.Header>
       <AppLayout.Sidebar></AppLayout.Sidebar>
       <AppLayout.Content className="max-w-5xl">

@@ -1,11 +1,11 @@
 import { graphql } from "gatsby"
 import React, { useEffect } from "react"
-import { Post } from "types/types"
-import OceanShowCase from "../components/OceanShowCase"
+import { Post } from "../types/types"
 import PostCard from "../components/PostCard"
 import { AppHeader } from "../layouts/AppHeader"
 import AppLayout from "../layouts/AppLayout"
 import { autoAsyncStorageToDOM } from "../utils/darkMode"
+import { Helmet } from "react-helmet"
 
 const Posts = ({ data }) => {
   useEffect(() => {
@@ -15,13 +15,18 @@ const Posts = ({ data }) => {
   return (
     <AppLayout>
       <AppLayout.Header>
-        <OceanShowCase>
-          <AppHeader />
-        </OceanShowCase>
+        <Helmet>
+          <link
+            rel="stylesheet"
+            media="all"
+            href="//cdnjs.cloudflare.com/ajax/libs/Han/3.3.0/han.min.css"
+          />
+        </Helmet>
+        <AppHeader />
       </AppLayout.Header>
       <AppLayout.Sidebar />
-      <AppLayout.Content>
-        <ul className="container max-w-4xl mx-auto divide-y">
+      <AppLayout.Content className="border-l-[3px] border-black flex">
+        <ul className="container max-w-4xl mx-auto list-disc">
           {data.allMdx.nodes.map((post: Post, index) => (
             <PostCard key={index} postContent={post} />
           ))}

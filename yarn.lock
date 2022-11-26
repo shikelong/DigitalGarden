@@ -3691,9 +3691,11 @@ ansi-regex@^2.0.0:
   integrity sha1-w7M6te42DYbg5ijwRorn7yfWVN8=
 
 ansi-regex@^4.1.0:
-  version "4.1.0"
-  resolved "https://registry.npmjs.org/ansi-regex/-/ansi-regex-4.1.0.tgz#8b9f8f08cf1acb843756a839ca8c7e3168c51997"
-  integrity sha512-1apePfXM1UOSqw0o9IiFAovVz9M5S1Dg+4TrDwfMewQ6p/rmMueb7tWZjQ1rx4Loy1ArBggoqGpfqqdI4rondg==
+  version "4.1.1"
+  resolved ""
+  integrity ""
+  dependencies:
+    
 
 ansi-regex@^5.0.1:
   version "5.0.1"
@@ -5483,32 +5485,11 @@ detective@^5.2.0:
     minimist "^1.1.1"
 
 devcert@^1.2.0:
-  version "1.2.0"
-  resolved "https://registry.npmmirror.com/devcert/-/devcert-1.2.0.tgz#7fb0fa2ca4c73baf3a3053973e80ebc5899fb20d"
-  integrity sha512-Tca9LUcmDegqTxlnQLTxVARS3MqYT+eWJfskXykefknT9jPoSJEA+t5BkDq5C5Tz+gVmAWmOH5vvKMfLJO/UhQ==
+  version "1.2.1"
+  resolved ""
+  integrity ""
   dependencies:
-    "@types/configstore" "^2.1.1"
-    "@types/debug" "^0.0.30"
-    "@types/get-port" "^3.2.0"
-    "@types/glob" "^5.0.34"
-    "@types/lodash" "^4.14.92"
-    "@types/mkdirp" "^0.5.2"
-    "@types/node" "^8.5.7"
-    "@types/rimraf" "^2.0.2"
-    "@types/tmp" "^0.0.33"
-    application-config-path "^0.1.0"
-    command-exists "^1.2.4"
-    debug "^3.1.0"
-    eol "^0.9.1"
-    get-port "^3.2.0"
-    glob "^7.1.2"
-    lodash "^4.17.4"
-    mkdirp "^0.5.1"
-    password-prompt "^1.0.4"
-    rimraf "^2.6.2"
-    sudo-prompt "^8.2.0"
-    tmp "^0.0.33"
-    tslib "^1.10.0"
+    
 
 didyoumean@^1.2.2:
   version "1.2.2"
@@ -6436,13 +6417,11 @@ file-loader@^6.2.0:
     schema-utils "^3.0.0"
 
 file-type@^16.5.3:
-  version "16.5.3"
-  resolved "https://registry.npmjs.org/file-type/-/file-type-16.5.3.tgz#474b7e88c74724046abb505e9b8ed4db30c4fc06"
-  integrity sha512-uVsl7iFhHSOY4bEONLlTK47iAHtNsFHWP5YE4xJfZ4rnX7S1Q3wce09XgqSC7E/xh8Ncv/be1lNoyprlUH/x6A==
+  version "16.5.4"
+  resolved ""
+  integrity ""
   dependencies:
-    readable-web-to-node-stream "^3.0.0"
-    strtok3 "^6.2.4"
-    token-types "^4.1.1"
+    
 
 file-type@^9.0.0:
   version "9.0.0"
@@ -6544,9 +6523,11 @@ flatted@^3.1.0:
   integrity sha512-WIWGi2L3DyTUvUrwRKgGi9TwxQMUEqPOPQBVi71R96jZXJdFskXEmf54BoZaS1kknGODoIGASGEzBUYdyMCBJg==
 
 follow-redirects@^1.14.0:
-  version "1.14.7"
-  resolved "https://registry.npmjs.org/follow-redirects/-/follow-redirects-1.14.7.tgz#2004c02eb9436eee9a21446a6477debf17e81685"
-  integrity sha512-+hbxoLbFMbRKDwohX8GkTataGqO6Jb7jGwpAlwgy2bIz25XtRm7KEzJM76R1WiNT5SwZkX4Y75SwBolkpmE7iQ==
+  version "1.14.8"
+  resolved ""
+  integrity ""
+  dependencies:
+    
 
 fork-ts-checker-webpack-plugin@^6.5.0:
   version "6.5.2"
@@ -6853,48 +6834,11 @@ gatsby-plugin-manifest@^4.6.0:
     sharp "^0.29.3"
 
 gatsby-plugin-mdx@^3.6.0:
-  version "3.6.0"
-  resolved "https://registry.npmmirror.com/gatsby-plugin-mdx/-/gatsby-plugin-mdx-3.6.0.tgz#fa4a6f63bcb6b70c6d534beb8e096987347088e8"
-  integrity sha512-3S4YOi6VfGPIplClqNIb7xmPAW1IzXi8LAd3y3DKtyj+hjCmMo5nG2FqN3aDvy4mVzY5Dfv2M4nMsg2yOaLyLQ==
+  version "3.15.2"
+  resolved ""
+  integrity ""
   dependencies:
-    "@babel/core" "^7.15.5"
-    "@babel/generator" "^7.15.4"
-    "@babel/helper-plugin-utils" "^7.14.0"
-    "@babel/plugin-proposal-object-rest-spread" "^7.14.7"
-    "@babel/preset-env" "^7.15.4"
-    "@babel/preset-react" "^7.14.0"
-    "@babel/runtime" "^7.15.4"
-    "@babel/types" "^7.15.4"
-    camelcase-css "^2.0.1"
-    change-case "^3.1.0"
-    core-js "^3.17.2"
-    dataloader "^1.4.0"
-    debug "^4.3.1"
-    escape-string-regexp "^1.0.5"
-    eval "^0.1.4"
-    fs-extra "^10.0.0"
-    gatsby-core-utils "^3.6.0"
-    gray-matter "^4.0.2"
-    json5 "^2.1.3"
-    loader-utils "^1.4.0"
-    lodash "^4.17.21"
-    mdast-util-to-string "^1.1.0"
-    mdast-util-toc "^3.1.0"
-    mime "^2.4.6"
-    mkdirp "^1.0.4"
-    p-queue "^6.6.2"
-    pretty-bytes "^5.3.0"
-    remark "^10.0.1"
-    remark-retext "^3.1.3"
-    retext-english "^3.0.4"
-    slugify "^1.4.4"
-    static-site-generator-webpack-plugin "^3.4.2"
-    style-to-object "^0.3.0"
-    underscore.string "^3.3.5"
-    unified "^8.4.2"
-    unist-util-map "^1.0.5"
-    unist-util-remove "^1.0.3"
-    unist-util-visit "^1.4.1"
+    
 
 gatsby-plugin-page-creator@^5.2.0:
   version "5.2.0"
@@ -7496,21 +7440,11 @@ globby@^11.0.3, globby@^11.0.4, globby@^11.1.0:
     slash "^3.0.0"
 
 got@^11.8.3:
-  version "11.8.3"
-  resolved "https://registry.npmjs.org/got/-/got-11.8.3.tgz#f496c8fdda5d729a90b4905d2b07dbd148170770"
-  integrity sha512-7gtQ5KiPh1RtGS9/Jbv1ofDpBFuq42gyfEib+ejaRBJuj/3tQFeR5+gw57e4ipaU8c/rCjvX6fkQz2lyDlGAOg==
+  version "11.8.5"
+  resolved ""
+  integrity ""
   dependencies:
-    "@sindresorhus/is" "^4.0.0"
-    "@szmarczak/http-timer" "^4.0.5"
-    "@types/cacheable-request" "^6.0.1"
-    "@types/responselike" "^1.0.0"
-    cacheable-lookup "^5.0.3"
-    cacheable-request "^7.0.2"
-    decompress-response "^6.0.0"
-    http2-wrapper "^1.0.0-beta.5.2"
-    lowercase-keys "^2.0.0"
-    p-cancelable "^2.0.0"
-    responselike "^2.0.0"
+    
 
 got@^11.8.5:
   version "11.8.5"
@@ -8468,9 +8402,11 @@ joi@^17.4.2:
     "@sideway/pinpoint" "^2.0.0"
 
 jpeg-js@^0.4.0:
-  version "0.4.3"
-  resolved "https://registry.npmjs.org/jpeg-js/-/jpeg-js-0.4.3.tgz#6158e09f1983ad773813704be80680550eff977b"
-  integrity sha512-ru1HWKek8octvUHFHvE5ZzQ1yAsJmIvRdGWvSoKV52XKyuyYA437QWDttXT8eZXDSbuMpHlLzPDZUPd6idIz+Q==
+  version "0.4.4"
+  resolved ""
+  integrity ""
+  dependencies:
+    
 
 "js-tokens@^3.0.0 || ^4.0.0", js-tokens@^4.0.0:
   version "4.0.0"
@@ -8747,22 +8683,18 @@ loader-runner@^4.2.0:
   integrity sha512-92+huvxMvYlMzMt0iIOukcwYBFpkYJdpl2xsZ7LrlayO7E8SOv+JJUEK17B/dJIHAOLMfh2dZZ/Y18WgmGtYNw==
 
 loader-utils@^1.4.0:
-  version "1.4.0"
-  resolved "https://registry.npmjs.org/loader-utils/-/loader-utils-1.4.0.tgz#c579b5e34cb34b1a74edc6c1fb36bfa371d5a613"
-  integrity sha512-qH0WSMBtn/oHuwjy/NucEgbx5dbxxnxup9s4PVXJUDHZBQY+s0NWA9rJf53RBnQZxfch7euUui7hpoAPvALZdA==
+  version "1.4.2"
+  resolved ""
+  integrity ""
   dependencies:
-    big.js "^5.2.2"
-    emojis-list "^3.0.0"
-    json5 "^1.0.1"
+    
 
 loader-utils@^2.0.0:
-  version "2.0.2"
-  resolved "https://registry.npmjs.org/loader-utils/-/loader-utils-2.0.2.tgz#d6e3b4fb81870721ae4e0868ab11dd638368c129"
-  integrity sha512-TM57VeHptv569d/GKh6TAYdzKblwDNiumOdkFnejjD0XwTH87K90w3O7AiJRqdQoXygvi1VQTJTLGhJl7WqA7A==
+  version "2.0.4"
+  resolved ""
+  integrity ""
   dependencies:
-    big.js "^5.2.2"
-    emojis-list "^3.0.0"
-    json5 "^2.1.2"
+    
 
 loader-utils@^2.0.4:
   version "2.0.4"
@@ -9283,11 +9215,11 @@ mini-svg-data-uri@^1.4.3:
   integrity sha512-gSfqpMRC8IxghvMcxzzmMnWpXAChSA+vy4cia33RgerMS8Fex95akUyQZPbxJJmeBGiGmK7n/1OpUX8ksRjIdA==
 
 minimatch@3.0.4, minimatch@^3.0.4:
-  version "3.0.4"
-  resolved "https://registry.npmjs.org/minimatch/-/minimatch-3.0.4.tgz#5166e286457f03306064be5497e8dbb0c3d32083"
-  integrity sha512-yJHVQEhyqPLUTgt9B83PXu6W3rx4MvvHvSUvToogpwoGDOUQ+yDrR0HRot+yOCdCO7u4hX3pWft6kWBBcqh0UA==
+  version "3.0.5"
+  resolved ""
+  integrity ""
   dependencies:
-    brace-expansion "^1.1.7"
+    
 
 minimatch@^3.0.5, minimatch@^3.1.1, minimatch@^3.1.2:
   version "3.1.2"
@@ -9297,9 +9229,11 @@ minimatch@^3.0.5, minimatch@^3.1.1, minimatch@^3.1.2:
     brace-expansion "^1.1.7"
 
 minimist@^1.1.1, minimist@^1.2.0, minimist@^1.2.3, minimist@^1.2.5:
-  version "1.2.5"
-  resolved "https://registry.npmjs.org/minimist/-/minimist-1.2.5.tgz#67d66014b66a6a8aaa0c083c5fd58df4e4e97602"
-  integrity sha512-FM9nNUYrRBAELZQT3xeZQ7fmMOBg6nWNmJKTcgsJeaLstP/UODVpGsr5OhXhhXg6f+qtJ8uiZ+PUxkDWcgIXLw==
+  version "1.2.6"
+  resolved ""
+  integrity ""
+  dependencies:
+    
 
 minimist@^1.2.6:
   version "1.2.7"
@@ -9329,9 +9263,11 @@ mkdirp@^1.0.4:
   integrity sha512-vVqVZQyf3WLx2Shd0qJ9xuvqgAyKPLAiqITEtqW0oIUjzo3PePDd6fW9iFz30ef7Ysp/oiWqbhszeGWW2T6Gzw==
 
 moment@^2.29.1:
-  version "2.29.1"
-  resolved "https://registry.npmmirror.com/moment/-/moment-2.29.1.tgz#b2be769fa31940be9eeea6469c075e35006fa3d3"
-  integrity sha512-kHmoybcPV8Sqy59DwNDY3Jefr64lK/by/da0ViFcuA4DH0vQg5Q6Ze5VimxkfQNSC+Mls/Kx53s7TjP1RhFEDQ==
+  version "2.29.4"
+  resolved ""
+  integrity ""
+  dependencies:
+    
 
 ms@2.0.0:
   version "2.0.0"
@@ -11724,13 +11660,11 @@ socket.io-client@3.1.3:
     socket.io-parser "~4.0.4"
 
 socket.io-parser@~4.0.3, socket.io-parser@~4.0.4:
-  version "4.0.4"
-  resolved "https://registry.npmjs.org/socket.io-parser/-/socket.io-parser-4.0.4.tgz#9ea21b0d61508d18196ef04a2c6b9ab630f4c2b0"
-  integrity sha512-t+b0SS+IxG7Rxzda2EVvyBZbvFPBCjJoyHuE0P//7OAsN23GItzDRdWa6ALxZI/8R5ygK7jAR6t028/z+7295g==
+  version "4.0.5"
+  resolved ""
+  integrity ""
   dependencies:
-    "@types/component-emitter" "^1.2.10"
-    component-emitter "~1.3.0"
-    debug "~4.3.1"
+    
 
 socket.io@3.1.2:
   version "3.1.2"
@@ -12307,13 +12241,11 @@ terser@^5.2.0:
     source-map-support "~0.5.20"
 
 terser@^5.7.2:
-  version "5.10.0"
-  resolved "https://registry.npmjs.org/terser/-/terser-5.10.0.tgz#b86390809c0389105eb0a0b62397563096ddafcc"
-  integrity sha512-AMmF99DMfEDiRJfxfY5jj5wNH/bYO09cniSqhfoyxc8sFoYIgkJy86G04UoZU5VjlpnplVu0K6Tx6E9b5+DlHA==
+  version "5.14.2"
+  resolved ""
+  integrity ""
   dependencies:
-    commander "^2.20.0"
-    source-map "~0.7.2"
-    source-map-support "~0.5.20"
+    
 
 text-table@^0.2.0:
   version "0.2.0"

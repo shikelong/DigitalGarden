@@ -12,7 +12,6 @@ const defaultHeader = (
   <header className="container mx-auto px-4 flex items-center justify-between">
     <SiteLogo />
     <div>
-      {/* <SiteSearch /> */}
       <ThemeToggle />
     </div>
   </header>
